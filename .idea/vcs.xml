@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/strollit-admin" vcs="svn" />
+    <mapping directory="$PROJECT_DIR$/strollit-baseframework" vcs="svn" />
+    <mapping directory="$PROJECT_DIR$/strollit-community" vcs="svn" />
+    <mapping directory="$PROJECT_DIR$/strollit-eureka" vcs="svn" />
+    <mapping directory="$PROJECT_DIR$/strollit-gateway" vcs="svn" />
+    <mapping directory="$PROJECT_DIR$/strollit-pay" vcs="svn" />
+    <mapping directory="$PROJECT_DIR$/strollit-pc" vcs="svn" />
+    <mapping directory="$PROJECT_DIR$/strollit-store" vcs="svn" />
+    <mapping directory="$PROJECT_DIR$/strollit-user" vcs="svn" />
+  </component>
+</project>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/strollit-admin/strollit-admin.iml" filepath="$PROJECT_DIR$/strollit-admin/strollit-admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/strollit-baseframework/strollit-baseframework.iml" filepath="$PROJECT_DIR$/strollit-baseframework/strollit-baseframework.iml" />
+      <module fileurl="file://$PROJECT_DIR$/strollit-community/strollit-community.iml" filepath="$PROJECT_DIR$/strollit-community/strollit-community.iml" />
+      <module fileurl="file://$PROJECT_DIR$/strollit-eureka/strollit-eureka.iml" filepath="$PROJECT_DIR$/strollit-eureka/strollit-eureka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/strollit-gateway/strollit-gateway.iml" filepath="$PROJECT_DIR$/strollit-gateway/strollit-gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/strollit-pay/strollit-pay.iml" filepath="$PROJECT_DIR$/strollit-pay/strollit-pay.iml" />
+      <module fileurl="file://$PROJECT_DIR$/strollit-pc/strollit-pc.iml" filepath="$PROJECT_DIR$/strollit-pc/strollit-pc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/strollit-platform.iml" filepath="$PROJECT_DIR$/strollit-platform.iml" />
+      <module fileurl="file://$PROJECT_DIR$/strollit-store/strollit-store.iml" filepath="$PROJECT_DIR$/strollit-store/strollit-store.iml" />
+      <module fileurl="file://$PROJECT_DIR$/strollit-user/strollit-user.iml" filepath="$PROJECT_DIR$/strollit-user/strollit-user.iml" />
+    </modules>
+  </component>
+</project>

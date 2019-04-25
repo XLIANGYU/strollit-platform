@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/strollit-admin" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/strollit-baseframework" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/strollit-community" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/strollit-eureka" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/strollit-gateway" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/strollit-pay" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/strollit-pc" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/strollit-store" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/strollit-user" charset="UTF-8" />
+  </component>
+</project>

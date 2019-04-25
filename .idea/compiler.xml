@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="strollit-admin" />
+        <module name="strollit-baseframework" />
+        <module name="strollit-community" />
+        <module name="strollit-eureka" />
+        <module name="strollit-gateway" />
+        <module name="strollit-pay" />
+        <module name="strollit-pc" />
+        <module name="strollit-store" />
+        <module name="strollit-user" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="strollit-admin" target="1.8" />
+      <module name="strollit-baseframework" target="1.8" />
+      <module name="strollit-community" target="1.8" />
+      <module name="strollit-eureka" target="1.8" />
+      <module name="strollit-gateway" target="1.8" />
+      <module name="strollit-pay" target="1.8" />
+      <module name="strollit-pc" target="1.8" />
+      <module name="strollit-platform" target="1.8" />
+      <module name="strollit-store" target="1.8" />
+      <module name="strollit-user" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
