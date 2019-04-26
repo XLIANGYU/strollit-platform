@@ -25,21 +25,22 @@ import org.springframework.web.bind.annotation.ResponseStatus;
  */
 @Slf4j
 @ControllerAdvice
-public class GlobalExceptionHandler {
+public class GlobalExceptionHandler extends ApiBaseController {
 
     @ExceptionHandler(ApiException.class)
     @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR)
     @ResponseBody
     public ApiResult apiGlobalExceptionHandler(Exception e){
-        
-        return null;
+        String errorMsg = String.format("系统异常:%s", e.getMessage());
+        log.error(errorMsg, e);
+        return error(errorMsg);
     }
     
     @ExceptionHandler(WebException.class)
     @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR)
-    @ResponseBody
-    public String webGlobalExceptionHandler(Exception e, ModelMap map){
-        map.put("error_message", e.getMessage());
+    public String webGlobalExceptionHandler(Exception e){
+        String errorMsg = String.format("系统异常:%s", e.getMessage());
+        log.error(errorMsg, e);
         return "/error.html";
     }
 
