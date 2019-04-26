@@ -1,8 +1,3 @@
-/*
- * frxs Inc.  兴盛社区网络服务股份有限公司.
- * Copyright (c) 2017-2018. All Rights Reserved.
- */
-
 package com.icefrog.strollit.baseframework.redis;
 
 import java.io.IOException;

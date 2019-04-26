@@ -1,53 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.icefrog.strollit</groupId>
-  <artifactId>strollit-platform</artifactId>
-  <version>1.0-SNAPSHOT</version>
-  <packaging>pom</packaging>
+    <groupId>com.icefrog.strollit</groupId>
+    <artifactId>strollit-platform</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
 
-  <parent>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.0.1.RELEASE</version>
-  </parent>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.0.1.RELEASE</version>
+    </parent>
 
-  <modules>
-    <module>strollit-baseframework</module>
-    <module>strollit-admin</module>
-    <module>strollit-user</module>
-    <module>strollit-store</module>
-    <module>strollit-pay</module>
-    <module>strollit-community</module>
-    <module>strollit-gateway</module>
-    <module>strollit-pc</module>
-    <module>strollit-eureka</module>
-  </modules>
+    <modules>
+        <module>strollit-baseframework</module>
+        <module>strollit-admin</module>
+        <module>strollit-user</module>
+        <module>strollit-store</module>
+        <module>strollit-pay</module>
+        <module>strollit-community</module>
+        <module>strollit-gateway</module>
+        <module>strollit-pc</module>
+        <module>strollit-eureka</module>
+    </modules>
 
 
-  <name>strollit-platform</name>
-  <url>https://github.com/icefrog-su/strollit-platform</url>
+    <name>strollit-platform</name>
+    <url>https://github.com/icefrog-su/strollit-platform</url>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <maven.compiler.target>1.8</maven.compiler.target>
-  </properties>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
 
-  <dependencies>
-    <dependency>
-      <groupId>org.projectlombok</groupId>
-      <artifactId>lombok</artifactId>
-      <version>1.18.2</version>
-      <scope>provided</scope>
-    </dependency>
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.2</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.4</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>1.10</version>
+        </dependency>
+    </dependencies>
+    <build>
 
-  </dependencies>
-
-  <build>
-
-  </build>
+    </build>
 </project>
