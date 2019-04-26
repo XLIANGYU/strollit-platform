@@ -41,7 +41,7 @@ public class GlobalExceptionHandler extends ApiBaseController {
     public String webGlobalExceptionHandler(Exception e){
         String errorMsg = String.format("系统异常:%s", e.getMessage());
         log.error(errorMsg, e);
-        return "/error.html";
+        return "/error/500.html";
     }
 
 }
