@@ -27,11 +27,8 @@ public class ApiResult implements Serializable {
 	public static final Integer CODE_FEIGN_ERROR    	= 9;  // 响应feign调用失败
 	public static final Integer CODE_UNLOGINED      	= 99; // 响应未登录
 	public static final Integer CODE_UNTREATEDEXCEPTION = 100;// 响应未处理异常
-	public static final String  DEFAULT_FUNCTIONID  	= "default_function_id";
 	public static final String  SUCCESS_MESSAGE     	= "success";
 	public static final String  FAILED_MESSAGE      	= "failed";
-	
-	private String functionId;
 	
 	private String message;
 	
@@ -39,15 +36,6 @@ public class ApiResult implements Serializable {
 	
 	private Map<String, Object> data = new ConcurrentHashMap<>();
 
-	
-	public String getFunctionId() {
-		return functionId;
-	}
-
-	public ApiResult setFunctionId(String functionId) {
-		this.functionId = functionId;
-		return this;
-	}
 
 	public String getMessage() {
 		return message;
