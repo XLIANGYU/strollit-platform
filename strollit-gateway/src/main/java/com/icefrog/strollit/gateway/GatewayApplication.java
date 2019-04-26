@@ -16,12 +16,14 @@ import org.springframework.cloud.client.SpringCloudApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.context.annotation.ComponentScan;
 
 @Slf4j
 @EnableZuulProxy
 @EnableEurekaClient
 @EnableFeignClients
 @SpringBootApplication
+@ComponentScan(basePackages = {"com.icefrog.strollit"})
 public class GatewayApplication implements ApplicationRunner {
     
     public static void main(String[] args) {
