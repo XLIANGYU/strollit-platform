@@ -12,10 +12,13 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.SpringCloudApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @Slf4j
+@EnableZuulProxy
 @EnableEurekaClient
 @EnableFeignClients
 @SpringBootApplication
@@ -33,6 +36,6 @@ public class GatewayApplication implements ApplicationRunner {
      */
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        log.info("Gateway server start successful");
+        log.info("Gateway(Zuul) server start successful");
     }
 }
