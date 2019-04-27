@@ -10,6 +10,7 @@ ICE FROG Software
 - strollit-pc
 - strollit-store
 - strollit-user
+- strollit-zipkin
 
 ## 主要功能
 
