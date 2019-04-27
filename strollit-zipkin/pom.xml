@@ -12,7 +12,7 @@
     <artifactId>strollit-zipkin</artifactId>
 
     <name>strollit-zipkin</name>
-    <url>http://www.example.com</url>
+    <url>https://github.com/icefrog-su/strollit-platform/tree/master/strollit-zipkin</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
