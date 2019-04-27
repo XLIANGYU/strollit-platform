@@ -13,8 +13,5 @@ package com.icefrog.strollit.baseframework.web;
  * @since 1.0
  * @author icefrog.su@qq.com
  */
-public abstract class BaseController implements IController{
-
-
-
+public abstract class BaseController extends BaseServer implements IController {
 }
