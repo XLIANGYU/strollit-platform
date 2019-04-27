@@ -109,10 +109,7 @@
             <resource>
                 <directory>src/main/resources</directory>
                 <includes>
-                    <include>**/*.properties</include>
-                    <include>**/*.txt</include>
-                    <include>**/*.xml</include>
-                    <include>**/*.html</include>
+                    <include>**</include>
                 </includes>
             </resource>
         </resources>
