@@ -104,6 +104,7 @@ public abstract class ApiBaseController extends BaseController {
      * ApiBaseController 不支持此方法, 调用此方法将引发UnsupportedOperationException异常
      * 请参见WebBaseController
      */
+    @Deprecated
     @Override
     public void throwWebException() {
         throw new UnsupportedOperationException("ApiBaseController Unsupported the WebException, please see the WebBaseController");
@@ -115,6 +116,7 @@ public abstract class ApiBaseController extends BaseController {
      * 请参见WebBaseController
      * @param message exception message
      */
+    @Deprecated
     @Override
     public void throwWebException(String message) {
         throw new UnsupportedOperationException("ApiBaseController Unsupported the WebException, please see the WebBaseController");
@@ -127,6 +129,7 @@ public abstract class ApiBaseController extends BaseController {
      * @param message exception message
      * @param t Throwable
      */
+    @Deprecated
     @Override
     public void throwWebException(String message, Throwable t) {
         throw new UnsupportedOperationException("ApiBaseController Unsupported the WebException, please see the WebBaseController");

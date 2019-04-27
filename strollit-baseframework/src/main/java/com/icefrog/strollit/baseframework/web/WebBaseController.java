@@ -23,6 +23,7 @@ public abstract class WebBaseController extends BaseController {
      * @param message exception message
      * @throws Exception Exception
      */
+    @Deprecated
     @Override
     public void throwApiException(String message) throws Exception {
         throw new UnsupportedOperationException("WebBaseController Unsupported the ApiException, please see the ApiBaseController");
@@ -36,6 +37,7 @@ public abstract class WebBaseController extends BaseController {
      * @param t Throwable
      * @throws Exception Exception
      */
+    @Deprecated
     @Override
     public void throwApiException(String message, Throwable t) throws Exception {
         throw new UnsupportedOperationException("WebBaseController Unsupported the ApiException, please see the ApiBaseController");
