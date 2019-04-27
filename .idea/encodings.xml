@@ -19,5 +19,6 @@
     <file url="file://$PROJECT_DIR$/strollit-store/src/main/resources/application.properties" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/strollit-user" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/strollit-user/src/main/resources/application.properties" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/strollit-zipkin" charset="UTF-8" />
   </component>
 </project>

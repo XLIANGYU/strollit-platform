@@ -25,6 +25,7 @@
         <module>strollit-gateway</module>
         <module>strollit-pc</module>
         <module>strollit-eureka</module>
+        <module>strollit-zipkin</module>
     </modules>
 
 

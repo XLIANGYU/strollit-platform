@@ -12,6 +12,7 @@
       <module fileurl="file://$PROJECT_DIR$/strollit-platform.iml" filepath="$PROJECT_DIR$/strollit-platform.iml" />
       <module fileurl="file://$PROJECT_DIR$/strollit-store/strollit-store.iml" filepath="$PROJECT_DIR$/strollit-store/strollit-store.iml" />
       <module fileurl="file://$PROJECT_DIR$/strollit-user/strollit-user.iml" filepath="$PROJECT_DIR$/strollit-user/strollit-user.iml" />
+      <module fileurl="file://$PROJECT_DIR$/strollit-zipkin/strollit-zipkin.iml" filepath="$PROJECT_DIR$/strollit-zipkin/strollit-zipkin.iml" />
     </modules>
   </component>
 </project>
