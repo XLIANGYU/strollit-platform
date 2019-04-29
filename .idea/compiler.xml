@@ -34,16 +34,16 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="strollit-admin" options="-parameters" />
-      <module name="strollit-baseframework" options="-parameters" />
-      <module name="strollit-community" options="-parameters" />
-      <module name="strollit-eureka" options="-parameters" />
-      <module name="strollit-gateway" options="-parameters" />
-      <module name="strollit-pay" options="-parameters" />
-      <module name="strollit-pc" options="-parameters" />
-      <module name="strollit-store" options="-parameters" />
-      <module name="strollit-user" options="-parameters" />
-      <module name="strollit-zipkin" options="-parameters" />
+      <module name="strollit-admin" options="" />
+      <module name="strollit-baseframework" options="" />
+      <module name="strollit-community" options="" />
+      <module name="strollit-eureka" options="" />
+      <module name="strollit-gateway" options="" />
+      <module name="strollit-pay" options="" />
+      <module name="strollit-pc" options="" />
+      <module name="strollit-store" options="" />
+      <module name="strollit-user" options="" />
+      <module name="strollit-zipkin" options="" />
     </option>
   </component>
 </project>
