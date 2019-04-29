@@ -8,8 +8,14 @@
 package com.icefrog.strollit.baseframework.web;
 
 import com.icefrog.strollit.baseframework.domain.UserDto;
+import com.icefrog.strollit.baseframework.util.HttpClientUtil;
+import com.icefrog.strollit.baseframework.util.HttpMethod;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.Map;
 
 /***
  * BaseController
@@ -28,5 +34,62 @@ public abstract class BaseController extends BaseServer implements IController {
     public UserDto getUser(HttpServletRequest request) {
         // TODO 解析 http request header 获取用户信息
         return null;
+    }
+    
+    protected HttpServletRequest getRequest() {
+        ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        return requestAttributes.getRequest();
+    }
+    
+    protected HttpServletResponse getResponse() {
+        ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        return requestAttributes.getResponse();
+    }
+    
+    /**
+     * 发送一个http请求 默认使用GET请求方式
+     * @return
+     */
+    protected String callApi(String url){
+        return HttpClientUtil.doGet(url, null);
+    }
+    
+    /**
+     * 发送一个http请求 默认使用GET请求方式 并指定请求参数
+     * @return
+     */
+    protected String callApi(String url,final Map<String, String> params){
+        return HttpClientUtil.doGet(url, params);
+    }
+    
+    /**
+     * 发送一个http请求 并指定请求方式
+     * @return
+     */
+    protected String callApi(String url,final HttpMethod requestMethod){
+        if(requestMethod == HttpMethod.GET){
+            return HttpClientUtil.doGet(url, null);
+        }else if(requestMethod == HttpMethod.POST){
+            return HttpClientUtil.doPost(url, null);
+        }else{
+            throw new RuntimeException("Unsupported request method");
+        }
+    }
+    
+    /**
+     * 发送一个http请求 指定请求方式与参数信息
+     * @return
+     */
+    protected String callApi(String url,final HttpMethod requestMethod, final Map<String, String> params) {
+        if(params == null){
+            throw new RuntimeException("参数map为null");
+        }
+        if(requestMethod == HttpMethod.GET){
+            return HttpClientUtil.doGet(url, params);
+        }else if(requestMethod == HttpMethod.POST){
+            return HttpClientUtil.doPost(url, params);
+        }else{
+            throw new RuntimeException("Unsupported request method");
+        }
     }
 }
