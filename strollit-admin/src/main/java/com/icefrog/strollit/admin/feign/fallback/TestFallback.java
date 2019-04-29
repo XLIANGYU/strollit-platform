@@ -14,7 +14,6 @@ public class TestFallback extends BaseFallback implements FallbackFactory<TestFe
     
     @Override
     public TestFeign create(Throwable throwable) {
-        log.error("fallback ~~~~~~~~~~~" , throwable);
         return new TestFeign() {
             @Override
             public ApiResult aa() {
