@@ -7,6 +7,10 @@
 
 package com.icefrog.strollit.baseframework.web;
 
+import com.icefrog.strollit.baseframework.domain.UserDto;
+
+import javax.servlet.http.HttpServletRequest;
+
 /***
  * 基础Controller规约. 约束Controller基础操作限制
  *
@@ -14,6 +18,13 @@ package com.icefrog.strollit.baseframework.web;
  * @author icefrog.su@qq.com
  */
 public interface IController {
+    
+    /***
+     * 获取当前登录的用户基础信息
+     * @param request HttpServletRequest request
+     * @return UserDto
+     */
+    UserDto getUser(HttpServletRequest request);
     
     /***
      * 引发ApiException
