@@ -8,6 +8,7 @@
 package com.icefrog.strollit.admin.web;
 
 import com.icefrog.strollit.admin.feign.TestFeign;
+import com.icefrog.strollit.baseframework.annotation.RequiredLogin;
 import com.icefrog.strollit.baseframework.api.ApiResult;
 import com.icefrog.strollit.baseframework.web.WebBaseController;
 import lombok.extern.slf4j.Slf4j;
@@ -24,6 +25,7 @@ public class TestController extends WebBaseController {
     @Autowired
     private TestFeign testFeign;
     
+    @RequiredLogin(required = false)
     @RequestMapping("/go")
     @ResponseBody
     public String go() throws Exception {
@@ -36,6 +38,7 @@ public class TestController extends WebBaseController {
         return "success";
     }
     
+    @RequiredLogin
     @RequestMapping("/testThymeleaf")
     public String testThymeleaf(){
         // 测试Thymeleaf模板引擎
