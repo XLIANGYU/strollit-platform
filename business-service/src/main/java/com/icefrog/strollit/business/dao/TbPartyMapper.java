@@ -1,7 +1,9 @@
 package com.icefrog.strollit.business.dao;
 
 import com.icefrog.strollit.business.model.TbParty;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface TbPartyMapper {
     int deleteByPrimaryKey(String id);
 

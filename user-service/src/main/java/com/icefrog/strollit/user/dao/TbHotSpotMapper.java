@@ -1,7 +1,9 @@
 package com.icefrog.strollit.user.dao;
 
 import com.icefrog.strollit.user.model.TbHotSpot;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface TbHotSpotMapper {
     int deleteByPrimaryKey(String id);
 

@@ -1,7 +1,9 @@
 package com.icefrog.strollit.baseservice.dao;
 
 import com.icefrog.strollit.baseservice.model.TbRegion;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface TbRegionMapper {
     int deleteByPrimaryKey(String regionId);
 

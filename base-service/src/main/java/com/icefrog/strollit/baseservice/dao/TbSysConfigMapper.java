@@ -1,7 +1,9 @@
 package com.icefrog.strollit.baseservice.dao;
 
 import com.icefrog.strollit.baseservice.model.TbSysConfig;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface TbSysConfigMapper {
     int deleteByPrimaryKey(String id);
 

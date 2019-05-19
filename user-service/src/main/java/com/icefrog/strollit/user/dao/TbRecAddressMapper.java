@@ -1,7 +1,9 @@
 package com.icefrog.strollit.user.dao;
 
 import com.icefrog.strollit.user.model.TbRecAddress;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface TbRecAddressMapper {
     int deleteByPrimaryKey(String id);
 

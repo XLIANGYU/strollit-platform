@@ -1,7 +1,9 @@
 package com.icefrog.strollit.business.dao;
 
 import com.icefrog.strollit.business.model.TbSell;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface TbSellMapper {
     int deleteByPrimaryKey(String id);
 

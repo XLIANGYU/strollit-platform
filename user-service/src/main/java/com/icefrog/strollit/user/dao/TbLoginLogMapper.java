@@ -1,7 +1,9 @@
 package com.icefrog.strollit.user.dao;
 
 import com.icefrog.strollit.user.model.TbLoginLog;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface TbLoginLogMapper {
     int deleteByPrimaryKey(String id);
 

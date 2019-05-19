@@ -1,7 +1,9 @@
 package com.icefrog.strollit.baseservice.dao;
 
 import com.icefrog.strollit.baseservice.model.TbPet;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface TbPetMapper {
     int deleteByPrimaryKey(String id);
 

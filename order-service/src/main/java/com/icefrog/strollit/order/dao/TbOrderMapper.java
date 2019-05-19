@@ -1,7 +1,9 @@
 package com.icefrog.strollit.order.dao;
 
 import com.icefrog.strollit.order.model.TbOrder;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface TbOrderMapper {
     int deleteByPrimaryKey(String id);
 

@@ -1,7 +1,9 @@
 package com.icefrog.strollit.business.dao;
 
 import com.icefrog.strollit.business.model.TbHelpStrap;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface TbHelpStrapMapper {
     int deleteByPrimaryKey(String id);
 

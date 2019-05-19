@@ -1,7 +1,9 @@
 package com.icefrog.strollit.baseservice.dao;
 
 import com.icefrog.strollit.baseservice.model.TbFeedback;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface TbFeedbackMapper {
     int deleteByPrimaryKey(String id);
 

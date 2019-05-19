@@ -1,7 +1,9 @@
 package com.icefrog.strollit.baseservice.dao;
 
 import com.icefrog.strollit.baseservice.model.TbSms;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface TbSmsMapper {
     int deleteByPrimaryKey(String id);
 

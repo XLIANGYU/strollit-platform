@@ -1,7 +1,9 @@
 package com.icefrog.strollit.business.dao;
 
 import com.icefrog.strollit.business.model.TbPetDiary;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface TbPetDiaryMapper {
     int deleteByPrimaryKey(String id);
 

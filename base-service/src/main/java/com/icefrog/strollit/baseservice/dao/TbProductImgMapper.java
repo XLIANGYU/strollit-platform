@@ -1,7 +1,9 @@
 package com.icefrog.strollit.baseservice.dao;
 
 import com.icefrog.strollit.baseservice.model.TbProductImg;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface TbProductImgMapper {
     int deleteByPrimaryKey(String id);
 

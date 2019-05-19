@@ -1,7 +1,9 @@
 package com.icefrog.strollit.business.dao;
 
 import com.icefrog.strollit.business.model.TbForumReply;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface TbForumReplyMapper {
     int deleteByPrimaryKey(String id);
 

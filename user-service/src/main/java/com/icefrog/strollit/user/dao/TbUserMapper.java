@@ -1,7 +1,9 @@
 package com.icefrog.strollit.user.dao;
 
 import com.icefrog.strollit.user.model.TbUser;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface TbUserMapper {
     int deleteByPrimaryKey(String id);
 

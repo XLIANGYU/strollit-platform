@@ -1,7 +1,9 @@
 package com.icefrog.strollit.business.dao;
 
 import com.icefrog.strollit.business.model.TbForum;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface TbForumMapper {
     int deleteByPrimaryKey(String id);
 
