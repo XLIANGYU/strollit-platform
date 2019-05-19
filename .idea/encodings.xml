@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding" addBOMForNewFiles="with NO BOM">
+  <component name="Encoding">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/strollit-admin" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/strollit-admin/src/main/resources/application.properties" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/strollit-baseframework" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/strollit-community" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/strollit-community/src/main/resources/application.properties" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/strollit-eureka" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/strollit-eureka/src/main/resources/application.properties" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/strollit-gateway" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/strollit-gateway/src/main/resources/application.properties" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/strollit-pay" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/strollit-pay/src/main/resources/application.properties" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/strollit-pc" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/strollit-pc/src/main/resources/application.properties" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/strollit-store" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/strollit-store/src/main/resources/application.properties" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/strollit-user" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/strollit-user/src/main/resources/application.properties" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/base-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/base-service/src/main/resources/application.properties" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/baseframework" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/business-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/business-service/src/main/resources/application.properties" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/order-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/order-service/src/main/resources/application.properties" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/register-eureka" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/register-eureka/src/main/resources/application.properties" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/strollit-zipkin" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/user-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/user-service/src/main/resources/application.properties" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web-admin" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web-admin/src/main/resources/application.properties" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web-order-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web-order-service/src/main/resources/application.properties" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web-portal-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web-portal-service/src/main/resources/application.properties" charset="UTF-8" />
   </component>
 </project>

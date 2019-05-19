@@ -10,16 +10,15 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>strollit-baseframework</module>
-        <module>strollit-admin</module>
-        <module>strollit-user</module>
-        <module>strollit-store</module>
-        <module>strollit-pay</module>
-        <module>strollit-community</module>
-        <module>strollit-gateway</module>
-        <module>strollit-pc</module>
-        <module>strollit-eureka</module>
-        <module>strollit-zipkin</module>
+        <module>baseframework</module>
+        <module>base-service</module>
+        <module>business-service</module>
+        <module>order-service</module>
+        <module>register-eureka</module>
+        <module>user-service</module>
+        <module>web-admin</module>
+        <module>web-order-service</module>
+        <module>web-portal-service</module>
     </modules>
 
 

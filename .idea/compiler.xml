@@ -6,6 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="base-service" />
+        <module name="baseframework" />
+        <module name="business-service" />
+        <module name="order-service" />
+        <module name="register-eureka" />
         <module name="strollit-admin" />
         <module name="strollit-baseframework" />
         <module name="strollit-community" />
@@ -15,9 +20,18 @@
         <module name="strollit-pc" />
         <module name="strollit-store" />
         <module name="strollit-user" />
+        <module name="user-service" />
+        <module name="web-admin" />
+        <module name="web-order-service" />
+        <module name="web-portal-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="base-service" target="1.8" />
+      <module name="baseframework" target="1.8" />
+      <module name="business-service" target="1.8" />
+      <module name="order-service" target="1.8" />
+      <module name="register-eureka" target="1.8" />
       <module name="strollit-admin" target="1.8" />
       <module name="strollit-baseframework" target="1.8" />
       <module name="strollit-community" target="1.8" />
@@ -29,6 +43,10 @@
       <module name="strollit-store" target="1.8" />
       <module name="strollit-user" target="1.8" />
       <module name="strollit-zipkin" target="1.8" />
+      <module name="user-service" target="1.8" />
+      <module name="web-admin" target="1.8" />
+      <module name="web-order-service" target="1.8" />
+      <module name="web-portal-service" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
