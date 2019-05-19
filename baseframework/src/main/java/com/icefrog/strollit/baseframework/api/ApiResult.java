@@ -15,27 +15,64 @@ import java.util.concurrent.ConcurrentHashMap;
  * ApiResult. http response object
  *
  * @author icefrog.su@qq.com
- *
- * @version 1.2 添加CODE_UNLOGINED=99标识未登录情况的ajax响应
- * 				添加CODE_UNTREATEDEXCEPTION=100标识未处理异常
  */
-public class ApiResult implements Serializable {
-	private static final long serialVersionUID 			= -6486606756679486803L;
+public class ApiResult<T extends Serializable> implements Serializable {
+    private static final long serialVersionUID = -3624770785365476720L;
+    
 	public static final Integer CODE_SUCCESS        	= 0;  // 响应成功
 	public static final Integer CODE_FAILED         	= 1;  // 响应失败
-	public static final Integer CODE_INVALID        	= 2;
-	public static final Integer CODE_FEIGN_ERROR    	= 9;  // 响应feign调用失败
-	public static final Integer CODE_UNLOGINED      	= 99; // 响应未登录
-	public static final Integer CODE_UNTREATEDEXCEPTION = 100;// 响应未处理异常
 	public static final String  SUCCESS_MESSAGE     	= "success";
 	public static final String  FAILED_MESSAGE      	= "failed";
-	
-	private String message;
+    
+    private String message;
 	
 	private Integer code;
 	
-	private Map<String, Object> data = new ConcurrentHashMap<>();
-
+	private T data;
+    
+    /***
+     * 构建一个描述正确状态的ApiResult(code=ApiResult.CODE_SUCCESS)
+     * 并指定需要返回的数据对象
+     * message字段为默认值(message=ApiResult.SUCCESS_MESSAGE)
+     * @param data 需要返回的数据对象
+     * @return ApiResult object with success status
+     */
+	public ApiResult success(T data){
+        return new ApiResult<T>().setCode(ApiResult.CODE_SUCCESS).setMessage(ApiResult.SUCCESS_MESSAGE).setData(data);
+    }
+    
+    /***
+     * 构建一个描述正确状态的ApiResult(code=ApiResult.CODE_SUCCESS)
+     * 并指定需要返回的数据对象
+     * @param data 需要返回的数据对象
+     * @param message 自定义消息
+     * @return ApiResult object with success status
+     */
+    public ApiResult success(String message, T data){
+        return new ApiResult<T>().setCode(ApiResult.CODE_SUCCESS).setMessage(message).setData(data);
+    }
+    
+    /***
+     * 构建一个描述错误在的ApiResult(code=ApiResult.CODE_FAILED)
+     * 并指定需要返回的数据对象
+     * @param data 需要返回的数据对象
+     * @return ApiResult object with error status
+     */
+    public ApiResult error(T data){
+        return new ApiResult<T>().setCode(ApiResult.CODE_FAILED).setMessage(ApiResult.FAILED_MESSAGE).setData(data);
+    }
+    
+    /***
+     * 构建一个描述错误在的ApiResult(code=ApiResult.CODE_FAILED)
+     * 并指定需要返回的数据对象
+     * @param message 自定义消息
+     * @param data 需要返回的数据对象
+     * @return ApiResult object with error status
+     */
+    public ApiResult error(String message, T data){
+        return new ApiResult<T>().setCode(ApiResult.CODE_FAILED).setMessage(message).setData(data);
+    }
+	
 
 	public String getMessage() {
 		return message;
@@ -55,17 +92,12 @@ public class ApiResult implements Serializable {
 		return this;
 	}
 
-	public Map<String, Object> getData() {
+	public T getData() {
 		return data;
 	}
 
-	public ApiResult setData(Map<String, Object> data) {
+	public ApiResult setData(T data) {
 		this.data = data;
 		return this;
-	}
-	
-	public Map<String, Object> putDate(String key,Object val){
-		this.data.put(key, val);
-		return this.data;
 	}
 }
