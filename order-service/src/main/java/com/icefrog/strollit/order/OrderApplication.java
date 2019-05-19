@@ -35,6 +35,6 @@ public class OrderApplication implements ApplicationRunner {
      */
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        log.info("Pay server start successful");
+        log.info("Order server start successful");
     }
 }

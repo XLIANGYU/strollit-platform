@@ -16,7 +16,7 @@ import java.util.concurrent.ConcurrentHashMap;
  *
  * @author icefrog.su@qq.com
  */
-public class ApiResult<T extends Serializable> implements Serializable {
+public class ApiResult<T> implements Serializable {
     private static final long serialVersionUID = -3624770785365476720L;
     
 	public static final Integer CODE_SUCCESS        	= 0;  // 响应成功

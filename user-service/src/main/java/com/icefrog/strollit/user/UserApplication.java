@@ -35,6 +35,6 @@ public class UserApplication implements ApplicationRunner {
      */
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        log.info("Gateway(Zuul) server start successful");
+        log.info("User server start successful");
     }
 }

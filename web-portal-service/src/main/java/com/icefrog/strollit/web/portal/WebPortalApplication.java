@@ -5,7 +5,7 @@
  * @author: icefrog.su@qq.com
  */
 
-package com.icefrog.strollit.user;
+package com.icefrog.strollit.web.portal;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.ApplicationArguments;
@@ -21,10 +21,10 @@ import org.springframework.context.annotation.ComponentScan;
 @EnableFeignClients
 @SpringBootApplication
 @ComponentScan(basePackages = {"com.icefrog.strollit"})
-public class UserApplication implements ApplicationRunner {
+public class WebPortalApplication implements ApplicationRunner {
     
     public static void main(String[] args) {
-        SpringApplication.run(UserApplication.class, args);
+        SpringApplication.run(WebPortalApplication.class, args);
     }
     
     /**
@@ -35,6 +35,6 @@ public class UserApplication implements ApplicationRunner {
      */
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        log.info("Store server start successful");
+        log.info("Web-portal server start successful");
     }
 }

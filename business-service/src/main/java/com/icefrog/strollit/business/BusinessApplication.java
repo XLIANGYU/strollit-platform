@@ -35,6 +35,6 @@ public class BusinessApplication implements ApplicationRunner {
      */
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        log.info("Pc server start successful");
+        log.info("Business server start successful");
     }
 }

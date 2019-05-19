@@ -2,19 +2,21 @@ package com.icefrog.strollit.baseframework.microserver;
 
 public class ServiceId {
 
-    public static final String STORLLIT_ADMIN               =            "strollit-admin";
+    public static final String BASE_SERVICE              =            "base-service";
     
-    public static final String STORLLIT_COMMUNITY           =            "strollit-community";
+    public static final String BUSINESS_SERVICE          =            "business-service";
     
-    public static final String STORLLIT_GATEWAY             =            "strollit-user";
+    public static final String ORDER_SERVICE             =            "order-service";
     
-    public static final String STORLLIT_PAY                 =            "strollit-order";
+    public static final String REGISTER_SERVICE          =            "register-service";
     
-    public static final String STORLLIT_PC                  =            "strollit-business";
+    public static final String USER_SERVICE              =            "user-service";
     
-    public static final String STORLLIT_STORE               =            "strollit-baseservice";
+    public static final String WEB_ADMIN                 =            "web-admin";
     
-    public static final String STORLLIT_USER                =            "strollit-user";
+    public static final String WEB_ORDER_SERVICE         =            "web-order-service";
+    
+    public static final String WEB_PORTAL_SERVICE        =            "web-service-service";
 
 
 }

@@ -35,6 +35,6 @@ public class BaseServiceApplication implements ApplicationRunner {
      */
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        log.info("Store server start successful");
+        log.info("BaseService server start successful");
     }
 }

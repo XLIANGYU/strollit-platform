@@ -35,6 +35,6 @@ public class WebOrderApplication implements ApplicationRunner {
      */
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        log.info("Community server start successful");
+        log.info("Web-order server start successful");
     }
 }
