@@ -1,15 +1,15 @@
 ## strollit-platform简介
 主要模块：
-- strollit-admin
-- strollit-baseframework
-- strollit-community
-- strollit-eureka
-- strollit-gateway
-- strollit-pay
-- strollit-pc
-- strollit-store
-- strollit-user
-- strollit-zipkin
+- baseframework
+- base-service
+- business-service
+- order-service
+- register-eureka
+- user-service
+- web-admin
+- web-order-service
+- web-portal-service
+- project-resource
 
 ## 主要功能
 
