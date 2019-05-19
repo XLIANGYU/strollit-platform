@@ -15,7 +15,6 @@
         <module name="strollit-pc" />
         <module name="strollit-store" />
         <module name="strollit-user" />
-        <module name="strollit-zipkin" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
