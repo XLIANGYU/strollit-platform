@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.icefrog.strollit.business.dao.TbContentsPushMapper" >
+  <resultMap id="BaseResultMap" type="com.icefrog.strollit.business.model.TbContentsPush" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="user_id" property="userId" jdbcType="VARCHAR" />
+    <result column="user_type" property="userType" jdbcType="VARCHAR" />
+    <result column="sort_num" property="sortNum" jdbcType="BIGINT" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="subtitle" property="subtitle" jdbcType="VARCHAR" />
+    <result column="header_image_url" property="headerImageUrl" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="like_count" property="likeCount" jdbcType="BIGINT" />
+    <result column="is_original" property="isOriginal" jdbcType="INTEGER" />
+    <result column="ref_url" property="refUrl" jdbcType="VARCHAR" />
+    <result column="is_del" property="isDel" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.icefrog.strollit.business.model.TbContentsPush" extends="BaseResultMap" >
+    <result column="contents" property="contents" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, user_id, user_type, sort_num, title, subtitle, header_image_url, create_time, 
+    like_count, is_original, ref_url, is_del
+  </sql>
+  <sql id="Blob_Column_List" >
+    contents
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from tb_contents_push
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from tb_contents_push
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.icefrog.strollit.business.model.TbContentsPush" >
+    insert into tb_contents_push (id, user_id, user_type, 
+      sort_num, title, subtitle, 
+      header_image_url, create_time, like_count, 
+      is_original, ref_url, is_del, 
+      contents)
+    values (#{id,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{userType,jdbcType=VARCHAR}, 
+      #{sortNum,jdbcType=BIGINT}, #{title,jdbcType=VARCHAR}, #{subtitle,jdbcType=VARCHAR}, 
+      #{headerImageUrl,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{likeCount,jdbcType=BIGINT}, 
+      #{isOriginal,jdbcType=INTEGER}, #{refUrl,jdbcType=VARCHAR}, #{isDel,jdbcType=INTEGER}, 
+      #{contents,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.icefrog.strollit.business.model.TbContentsPush" >
+    insert into tb_contents_push
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="userType != null" >
+        user_type,
+      </if>
+      <if test="sortNum != null" >
+        sort_num,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="subtitle != null" >
+        subtitle,
+      </if>
+      <if test="headerImageUrl != null" >
+        header_image_url,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="likeCount != null" >
+        like_count,
+      </if>
+      <if test="isOriginal != null" >
+        is_original,
+      </if>
+      <if test="refUrl != null" >
+        ref_url,
+      </if>
+      <if test="isDel != null" >
+        is_del,
+      </if>
+      <if test="contents != null" >
+        contents,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="userType != null" >
+        #{userType,jdbcType=VARCHAR},
+      </if>
+      <if test="sortNum != null" >
+        #{sortNum,jdbcType=BIGINT},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="subtitle != null" >
+        #{subtitle,jdbcType=VARCHAR},
+      </if>
+      <if test="headerImageUrl != null" >
+        #{headerImageUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="likeCount != null" >
+        #{likeCount,jdbcType=BIGINT},
+      </if>
+      <if test="isOriginal != null" >
+        #{isOriginal,jdbcType=INTEGER},
+      </if>
+      <if test="refUrl != null" >
+        #{refUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="isDel != null" >
+        #{isDel,jdbcType=INTEGER},
+      </if>
+      <if test="contents != null" >
+        #{contents,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.icefrog.strollit.business.model.TbContentsPush" >
+    update tb_contents_push
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="userType != null" >
+        user_type = #{userType,jdbcType=VARCHAR},
+      </if>
+      <if test="sortNum != null" >
+        sort_num = #{sortNum,jdbcType=BIGINT},
+      </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="subtitle != null" >
+        subtitle = #{subtitle,jdbcType=VARCHAR},
+      </if>
+      <if test="headerImageUrl != null" >
+        header_image_url = #{headerImageUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="likeCount != null" >
+        like_count = #{likeCount,jdbcType=BIGINT},
+      </if>
+      <if test="isOriginal != null" >
+        is_original = #{isOriginal,jdbcType=INTEGER},
+      </if>
+      <if test="refUrl != null" >
+        ref_url = #{refUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="isDel != null" >
+        is_del = #{isDel,jdbcType=INTEGER},
+      </if>
+      <if test="contents != null" >
+        contents = #{contents,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.icefrog.strollit.business.model.TbContentsPush" >
+    update tb_contents_push
+    set user_id = #{userId,jdbcType=VARCHAR},
+      user_type = #{userType,jdbcType=VARCHAR},
+      sort_num = #{sortNum,jdbcType=BIGINT},
+      title = #{title,jdbcType=VARCHAR},
+      subtitle = #{subtitle,jdbcType=VARCHAR},
+      header_image_url = #{headerImageUrl,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      like_count = #{likeCount,jdbcType=BIGINT},
+      is_original = #{isOriginal,jdbcType=INTEGER},
+      ref_url = #{refUrl,jdbcType=VARCHAR},
+      is_del = #{isDel,jdbcType=INTEGER},
+      contents = #{contents,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.icefrog.strollit.business.model.TbContentsPush" >
+    update tb_contents_push
+    set user_id = #{userId,jdbcType=VARCHAR},
+      user_type = #{userType,jdbcType=VARCHAR},
+      sort_num = #{sortNum,jdbcType=BIGINT},
+      title = #{title,jdbcType=VARCHAR},
+      subtitle = #{subtitle,jdbcType=VARCHAR},
+      header_image_url = #{headerImageUrl,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      like_count = #{likeCount,jdbcType=BIGINT},
+      is_original = #{isOriginal,jdbcType=INTEGER},
+      ref_url = #{refUrl,jdbcType=VARCHAR},
+      is_del = #{isDel,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

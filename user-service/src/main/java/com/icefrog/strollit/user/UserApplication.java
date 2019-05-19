@@ -5,7 +5,7 @@
  * @author: icefrog.su@qq.com
  */
 
-package com.icefrog.strollit.web.portal;
+package com.icefrog.strollit.user;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.ApplicationArguments;
@@ -35,6 +35,6 @@ public class UserApplication implements ApplicationRunner {
      */
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        log.info("Store server start successful");
+        log.info("Gateway(Zuul) server start successful");
     }
 }

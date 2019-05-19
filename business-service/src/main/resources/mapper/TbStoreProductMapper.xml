@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.icefrog.strollit.business.dao.TbStoreProductMapper" >
+  <resultMap id="BaseResultMap" type="com.icefrog.strollit.business.model.TbStoreProduct" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="base_product_id" property="baseProductId" jdbcType="VARCHAR" />
+    <result column="store_id" property="storeId" jdbcType="VARCHAR" />
+    <result column="create_id" property="createId" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_id" property="updateId" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="product_name" property="productName" jdbcType="VARCHAR" />
+    <result column="original_price" property="originalPrice" jdbcType="BIGINT" />
+    <result column="sell_price" property="sellPrice" jdbcType="BIGINT" />
+    <result column="sell_type" property="sellType" jdbcType="VARCHAR" />
+    <result column="brand_name" property="brandName" jdbcType="VARCHAR" />
+    <result column="product_spec" property="productSpec" jdbcType="VARCHAR" />
+    <result column="vender_name" property="venderName" jdbcType="VARCHAR" />
+    <result column="product_type" property="productType" jdbcType="VARCHAR" />
+    <result column="is_del" property="isDel" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.icefrog.strollit.business.model.TbStoreProduct" extends="BaseResultMap" >
+    <result column="product_desc" property="productDesc" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, base_product_id, store_id, create_id, create_time, update_id, update_time, product_name, 
+    original_price, sell_price, sell_type, brand_name, product_spec, vender_name, product_type, 
+    is_del
+  </sql>
+  <sql id="Blob_Column_List" >
+    product_desc
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from tb_store_product
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from tb_store_product
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.icefrog.strollit.business.model.TbStoreProduct" >
+    insert into tb_store_product (id, base_product_id, store_id, 
+      create_id, create_time, update_id, 
+      update_time, product_name, original_price, 
+      sell_price, sell_type, brand_name, 
+      product_spec, vender_name, product_type, 
+      is_del, product_desc)
+    values (#{id,jdbcType=VARCHAR}, #{baseProductId,jdbcType=VARCHAR}, #{storeId,jdbcType=VARCHAR}, 
+      #{createId,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateId,jdbcType=VARCHAR}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{productName,jdbcType=VARCHAR}, #{originalPrice,jdbcType=BIGINT}, 
+      #{sellPrice,jdbcType=BIGINT}, #{sellType,jdbcType=VARCHAR}, #{brandName,jdbcType=VARCHAR}, 
+      #{productSpec,jdbcType=VARCHAR}, #{venderName,jdbcType=VARCHAR}, #{productType,jdbcType=VARCHAR}, 
+      #{isDel,jdbcType=INTEGER}, #{productDesc,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.icefrog.strollit.business.model.TbStoreProduct" >
+    insert into tb_store_product
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="baseProductId != null" >
+        base_product_id,
+      </if>
+      <if test="storeId != null" >
+        store_id,
+      </if>
+      <if test="createId != null" >
+        create_id,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateId != null" >
+        update_id,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="productName != null" >
+        product_name,
+      </if>
+      <if test="originalPrice != null" >
+        original_price,
+      </if>
+      <if test="sellPrice != null" >
+        sell_price,
+      </if>
+      <if test="sellType != null" >
+        sell_type,
+      </if>
+      <if test="brandName != null" >
+        brand_name,
+      </if>
+      <if test="productSpec != null" >
+        product_spec,
+      </if>
+      <if test="venderName != null" >
+        vender_name,
+      </if>
+      <if test="productType != null" >
+        product_type,
+      </if>
+      <if test="isDel != null" >
+        is_del,
+      </if>
+      <if test="productDesc != null" >
+        product_desc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="baseProductId != null" >
+        #{baseProductId,jdbcType=VARCHAR},
+      </if>
+      <if test="storeId != null" >
+        #{storeId,jdbcType=VARCHAR},
+      </if>
+      <if test="createId != null" >
+        #{createId,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateId != null" >
+        #{updateId,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="productName != null" >
+        #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="originalPrice != null" >
+        #{originalPrice,jdbcType=BIGINT},
+      </if>
+      <if test="sellPrice != null" >
+        #{sellPrice,jdbcType=BIGINT},
+      </if>
+      <if test="sellType != null" >
+        #{sellType,jdbcType=VARCHAR},
+      </if>
+      <if test="brandName != null" >
+        #{brandName,jdbcType=VARCHAR},
+      </if>
+      <if test="productSpec != null" >
+        #{productSpec,jdbcType=VARCHAR},
+      </if>
+      <if test="venderName != null" >
+        #{venderName,jdbcType=VARCHAR},
+      </if>
+      <if test="productType != null" >
+        #{productType,jdbcType=VARCHAR},
+      </if>
+      <if test="isDel != null" >
+        #{isDel,jdbcType=INTEGER},
+      </if>
+      <if test="productDesc != null" >
+        #{productDesc,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.icefrog.strollit.business.model.TbStoreProduct" >
+    update tb_store_product
+    <set >
+      <if test="baseProductId != null" >
+        base_product_id = #{baseProductId,jdbcType=VARCHAR},
+      </if>
+      <if test="storeId != null" >
+        store_id = #{storeId,jdbcType=VARCHAR},
+      </if>
+      <if test="createId != null" >
+        create_id = #{createId,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateId != null" >
+        update_id = #{updateId,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="productName != null" >
+        product_name = #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="originalPrice != null" >
+        original_price = #{originalPrice,jdbcType=BIGINT},
+      </if>
+      <if test="sellPrice != null" >
+        sell_price = #{sellPrice,jdbcType=BIGINT},
+      </if>
+      <if test="sellType != null" >
+        sell_type = #{sellType,jdbcType=VARCHAR},
+      </if>
+      <if test="brandName != null" >
+        brand_name = #{brandName,jdbcType=VARCHAR},
+      </if>
+      <if test="productSpec != null" >
+        product_spec = #{productSpec,jdbcType=VARCHAR},
+      </if>
+      <if test="venderName != null" >
+        vender_name = #{venderName,jdbcType=VARCHAR},
+      </if>
+      <if test="productType != null" >
+        product_type = #{productType,jdbcType=VARCHAR},
+      </if>
+      <if test="isDel != null" >
+        is_del = #{isDel,jdbcType=INTEGER},
+      </if>
+      <if test="productDesc != null" >
+        product_desc = #{productDesc,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.icefrog.strollit.business.model.TbStoreProduct" >
+    update tb_store_product
+    set base_product_id = #{baseProductId,jdbcType=VARCHAR},
+      store_id = #{storeId,jdbcType=VARCHAR},
+      create_id = #{createId,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_id = #{updateId,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      product_name = #{productName,jdbcType=VARCHAR},
+      original_price = #{originalPrice,jdbcType=BIGINT},
+      sell_price = #{sellPrice,jdbcType=BIGINT},
+      sell_type = #{sellType,jdbcType=VARCHAR},
+      brand_name = #{brandName,jdbcType=VARCHAR},
+      product_spec = #{productSpec,jdbcType=VARCHAR},
+      vender_name = #{venderName,jdbcType=VARCHAR},
+      product_type = #{productType,jdbcType=VARCHAR},
+      is_del = #{isDel,jdbcType=INTEGER},
+      product_desc = #{productDesc,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.icefrog.strollit.business.model.TbStoreProduct" >
+    update tb_store_product
+    set base_product_id = #{baseProductId,jdbcType=VARCHAR},
+      store_id = #{storeId,jdbcType=VARCHAR},
+      create_id = #{createId,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_id = #{updateId,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      product_name = #{productName,jdbcType=VARCHAR},
+      original_price = #{originalPrice,jdbcType=BIGINT},
+      sell_price = #{sellPrice,jdbcType=BIGINT},
+      sell_type = #{sellType,jdbcType=VARCHAR},
+      brand_name = #{brandName,jdbcType=VARCHAR},
+      product_spec = #{productSpec,jdbcType=VARCHAR},
+      vender_name = #{venderName,jdbcType=VARCHAR},
+      product_type = #{productType,jdbcType=VARCHAR},
+      is_del = #{isDel,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

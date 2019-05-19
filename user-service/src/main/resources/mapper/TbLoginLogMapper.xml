@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.icefrog.strollit.user.dao.TbLoginLogMapper" >
+  <resultMap id="BaseResultMap" type="com.icefrog.strollit.user.model.TbLoginLog" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="user_id" property="userId" jdbcType="VARCHAR" />
+    <result column="login_time" property="loginTime" jdbcType="TIMESTAMP" />
+    <result column="login_result" property="loginResult" jdbcType="VARCHAR" />
+    <result column="login_error_msg" property="loginErrorMsg" jdbcType="VARCHAR" />
+    <result column="login_ip" property="loginIp" jdbcType="VARCHAR" />
+    <result column="login_type" property="loginType" jdbcType="VARCHAR" />
+    <result column="portal_name" property="portalName" jdbcType="VARCHAR" />
+    <result column="res1" property="res1" jdbcType="VARCHAR" />
+    <result column="res2" property="res2" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, user_id, login_time, login_result, login_error_msg, login_ip, login_type, portal_name, 
+    res1, res2
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_login_log
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from tb_login_log
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.icefrog.strollit.user.model.TbLoginLog" >
+    insert into tb_login_log (id, user_id, login_time, 
+      login_result, login_error_msg, login_ip, 
+      login_type, portal_name, res1, 
+      res2)
+    values (#{id,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{loginTime,jdbcType=TIMESTAMP}, 
+      #{loginResult,jdbcType=VARCHAR}, #{loginErrorMsg,jdbcType=VARCHAR}, #{loginIp,jdbcType=VARCHAR}, 
+      #{loginType,jdbcType=VARCHAR}, #{portalName,jdbcType=VARCHAR}, #{res1,jdbcType=VARCHAR}, 
+      #{res2,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.icefrog.strollit.user.model.TbLoginLog" >
+    insert into tb_login_log
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="loginTime != null" >
+        login_time,
+      </if>
+      <if test="loginResult != null" >
+        login_result,
+      </if>
+      <if test="loginErrorMsg != null" >
+        login_error_msg,
+      </if>
+      <if test="loginIp != null" >
+        login_ip,
+      </if>
+      <if test="loginType != null" >
+        login_type,
+      </if>
+      <if test="portalName != null" >
+        portal_name,
+      </if>
+      <if test="res1 != null" >
+        res1,
+      </if>
+      <if test="res2 != null" >
+        res2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="loginTime != null" >
+        #{loginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="loginResult != null" >
+        #{loginResult,jdbcType=VARCHAR},
+      </if>
+      <if test="loginErrorMsg != null" >
+        #{loginErrorMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="loginIp != null" >
+        #{loginIp,jdbcType=VARCHAR},
+      </if>
+      <if test="loginType != null" >
+        #{loginType,jdbcType=VARCHAR},
+      </if>
+      <if test="portalName != null" >
+        #{portalName,jdbcType=VARCHAR},
+      </if>
+      <if test="res1 != null" >
+        #{res1,jdbcType=VARCHAR},
+      </if>
+      <if test="res2 != null" >
+        #{res2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.icefrog.strollit.user.model.TbLoginLog" >
+    update tb_login_log
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="loginTime != null" >
+        login_time = #{loginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="loginResult != null" >
+        login_result = #{loginResult,jdbcType=VARCHAR},
+      </if>
+      <if test="loginErrorMsg != null" >
+        login_error_msg = #{loginErrorMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="loginIp != null" >
+        login_ip = #{loginIp,jdbcType=VARCHAR},
+      </if>
+      <if test="loginType != null" >
+        login_type = #{loginType,jdbcType=VARCHAR},
+      </if>
+      <if test="portalName != null" >
+        portal_name = #{portalName,jdbcType=VARCHAR},
+      </if>
+      <if test="res1 != null" >
+        res1 = #{res1,jdbcType=VARCHAR},
+      </if>
+      <if test="res2 != null" >
+        res2 = #{res2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.icefrog.strollit.user.model.TbLoginLog" >
+    update tb_login_log
+    set user_id = #{userId,jdbcType=VARCHAR},
+      login_time = #{loginTime,jdbcType=TIMESTAMP},
+      login_result = #{loginResult,jdbcType=VARCHAR},
+      login_error_msg = #{loginErrorMsg,jdbcType=VARCHAR},
+      login_ip = #{loginIp,jdbcType=VARCHAR},
+      login_type = #{loginType,jdbcType=VARCHAR},
+      portal_name = #{portalName,jdbcType=VARCHAR},
+      res1 = #{res1,jdbcType=VARCHAR},
+      res2 = #{res2,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

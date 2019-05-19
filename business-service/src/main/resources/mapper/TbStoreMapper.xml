@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.icefrog.strollit.business.dao.TbStoreMapper" >
+  <resultMap id="BaseResultMap" type="com.icefrog.strollit.business.model.TbStore" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="admin_id" property="adminId" jdbcType="VARCHAR" />
+    <result column="province_id" property="provinceId" jdbcType="VARCHAR" />
+    <result column="city_id" property="cityId" jdbcType="VARCHAR" />
+    <result column="county_id" property="countyId" jdbcType="VARCHAR" />
+    <result column="town_id" property="townId" jdbcType="VARCHAR" />
+    <result column="store_name" property="storeName" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_id" property="createId" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="update_id" property="updateId" jdbcType="VARCHAR" />
+    <result column="map_x" property="mapX" jdbcType="VARCHAR" />
+    <result column="map_y" property="mapY" jdbcType="VARCHAR" />
+    <result column="log_url" property="logUrl" jdbcType="VARCHAR" />
+    <result column="online_time" property="onlineTime" jdbcType="VARCHAR" />
+    <result column="store_mobile" property="storeMobile" jdbcType="VARCHAR" />
+    <result column="store_telphone" property="storeTelphone" jdbcType="VARCHAR" />
+    <result column="store_wx" property="storeWx" jdbcType="VARCHAR" />
+    <result column="store_qq" property="storeQq" jdbcType="VARCHAR" />
+    <result column="store_rank" property="storeRank" jdbcType="BIGINT" />
+    <result column="is_disable" property="isDisable" jdbcType="INTEGER" />
+    <result column="is_destory" property="isDestory" jdbcType="INTEGER" />
+    <result column="is_del" property="isDel" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.icefrog.strollit.business.model.TbStore" extends="BaseResultMap" >
+    <result column="store_desc" property="storeDesc" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, admin_id, province_id, city_id, county_id, town_id, store_name, create_time, 
+    create_id, update_time, update_id, map_x, map_y, log_url, online_time, store_mobile, 
+    store_telphone, store_wx, store_qq, store_rank, is_disable, is_destory, is_del
+  </sql>
+  <sql id="Blob_Column_List" >
+    store_desc
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from tb_store
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from tb_store
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.icefrog.strollit.business.model.TbStore" >
+    insert into tb_store (id, admin_id, province_id, 
+      city_id, county_id, town_id, 
+      store_name, create_time, create_id, 
+      update_time, update_id, map_x, 
+      map_y, log_url, online_time, 
+      store_mobile, store_telphone, store_wx, 
+      store_qq, store_rank, is_disable, 
+      is_destory, is_del, store_desc
+      )
+    values (#{id,jdbcType=VARCHAR}, #{adminId,jdbcType=VARCHAR}, #{provinceId,jdbcType=VARCHAR}, 
+      #{cityId,jdbcType=VARCHAR}, #{countyId,jdbcType=VARCHAR}, #{townId,jdbcType=VARCHAR}, 
+      #{storeName,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createId,jdbcType=VARCHAR}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{updateId,jdbcType=VARCHAR}, #{mapX,jdbcType=VARCHAR}, 
+      #{mapY,jdbcType=VARCHAR}, #{logUrl,jdbcType=VARCHAR}, #{onlineTime,jdbcType=VARCHAR}, 
+      #{storeMobile,jdbcType=VARCHAR}, #{storeTelphone,jdbcType=VARCHAR}, #{storeWx,jdbcType=VARCHAR}, 
+      #{storeQq,jdbcType=VARCHAR}, #{storeRank,jdbcType=BIGINT}, #{isDisable,jdbcType=INTEGER}, 
+      #{isDestory,jdbcType=INTEGER}, #{isDel,jdbcType=INTEGER}, #{storeDesc,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.icefrog.strollit.business.model.TbStore" >
+    insert into tb_store
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="adminId != null" >
+        admin_id,
+      </if>
+      <if test="provinceId != null" >
+        province_id,
+      </if>
+      <if test="cityId != null" >
+        city_id,
+      </if>
+      <if test="countyId != null" >
+        county_id,
+      </if>
+      <if test="townId != null" >
+        town_id,
+      </if>
+      <if test="storeName != null" >
+        store_name,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createId != null" >
+        create_id,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="updateId != null" >
+        update_id,
+      </if>
+      <if test="mapX != null" >
+        map_x,
+      </if>
+      <if test="mapY != null" >
+        map_y,
+      </if>
+      <if test="logUrl != null" >
+        log_url,
+      </if>
+      <if test="onlineTime != null" >
+        online_time,
+      </if>
+      <if test="storeMobile != null" >
+        store_mobile,
+      </if>
+      <if test="storeTelphone != null" >
+        store_telphone,
+      </if>
+      <if test="storeWx != null" >
+        store_wx,
+      </if>
+      <if test="storeQq != null" >
+        store_qq,
+      </if>
+      <if test="storeRank != null" >
+        store_rank,
+      </if>
+      <if test="isDisable != null" >
+        is_disable,
+      </if>
+      <if test="isDestory != null" >
+        is_destory,
+      </if>
+      <if test="isDel != null" >
+        is_del,
+      </if>
+      <if test="storeDesc != null" >
+        store_desc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="adminId != null" >
+        #{adminId,jdbcType=VARCHAR},
+      </if>
+      <if test="provinceId != null" >
+        #{provinceId,jdbcType=VARCHAR},
+      </if>
+      <if test="cityId != null" >
+        #{cityId,jdbcType=VARCHAR},
+      </if>
+      <if test="countyId != null" >
+        #{countyId,jdbcType=VARCHAR},
+      </if>
+      <if test="townId != null" >
+        #{townId,jdbcType=VARCHAR},
+      </if>
+      <if test="storeName != null" >
+        #{storeName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createId != null" >
+        #{createId,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateId != null" >
+        #{updateId,jdbcType=VARCHAR},
+      </if>
+      <if test="mapX != null" >
+        #{mapX,jdbcType=VARCHAR},
+      </if>
+      <if test="mapY != null" >
+        #{mapY,jdbcType=VARCHAR},
+      </if>
+      <if test="logUrl != null" >
+        #{logUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="onlineTime != null" >
+        #{onlineTime,jdbcType=VARCHAR},
+      </if>
+      <if test="storeMobile != null" >
+        #{storeMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="storeTelphone != null" >
+        #{storeTelphone,jdbcType=VARCHAR},
+      </if>
+      <if test="storeWx != null" >
+        #{storeWx,jdbcType=VARCHAR},
+      </if>
+      <if test="storeQq != null" >
+        #{storeQq,jdbcType=VARCHAR},
+      </if>
+      <if test="storeRank != null" >
+        #{storeRank,jdbcType=BIGINT},
+      </if>
+      <if test="isDisable != null" >
+        #{isDisable,jdbcType=INTEGER},
+      </if>
+      <if test="isDestory != null" >
+        #{isDestory,jdbcType=INTEGER},
+      </if>
+      <if test="isDel != null" >
+        #{isDel,jdbcType=INTEGER},
+      </if>
+      <if test="storeDesc != null" >
+        #{storeDesc,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.icefrog.strollit.business.model.TbStore" >
+    update tb_store
+    <set >
+      <if test="adminId != null" >
+        admin_id = #{adminId,jdbcType=VARCHAR},
+      </if>
+      <if test="provinceId != null" >
+        province_id = #{provinceId,jdbcType=VARCHAR},
+      </if>
+      <if test="cityId != null" >
+        city_id = #{cityId,jdbcType=VARCHAR},
+      </if>
+      <if test="countyId != null" >
+        county_id = #{countyId,jdbcType=VARCHAR},
+      </if>
+      <if test="townId != null" >
+        town_id = #{townId,jdbcType=VARCHAR},
+      </if>
+      <if test="storeName != null" >
+        store_name = #{storeName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createId != null" >
+        create_id = #{createId,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateId != null" >
+        update_id = #{updateId,jdbcType=VARCHAR},
+      </if>
+      <if test="mapX != null" >
+        map_x = #{mapX,jdbcType=VARCHAR},
+      </if>
+      <if test="mapY != null" >
+        map_y = #{mapY,jdbcType=VARCHAR},
+      </if>
+      <if test="logUrl != null" >
+        log_url = #{logUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="onlineTime != null" >
+        online_time = #{onlineTime,jdbcType=VARCHAR},
+      </if>
+      <if test="storeMobile != null" >
+        store_mobile = #{storeMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="storeTelphone != null" >
+        store_telphone = #{storeTelphone,jdbcType=VARCHAR},
+      </if>
+      <if test="storeWx != null" >
+        store_wx = #{storeWx,jdbcType=VARCHAR},
+      </if>
+      <if test="storeQq != null" >
+        store_qq = #{storeQq,jdbcType=VARCHAR},
+      </if>
+      <if test="storeRank != null" >
+        store_rank = #{storeRank,jdbcType=BIGINT},
+      </if>
+      <if test="isDisable != null" >
+        is_disable = #{isDisable,jdbcType=INTEGER},
+      </if>
+      <if test="isDestory != null" >
+        is_destory = #{isDestory,jdbcType=INTEGER},
+      </if>
+      <if test="isDel != null" >
+        is_del = #{isDel,jdbcType=INTEGER},
+      </if>
+      <if test="storeDesc != null" >
+        store_desc = #{storeDesc,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.icefrog.strollit.business.model.TbStore" >
+    update tb_store
+    set admin_id = #{adminId,jdbcType=VARCHAR},
+      province_id = #{provinceId,jdbcType=VARCHAR},
+      city_id = #{cityId,jdbcType=VARCHAR},
+      county_id = #{countyId,jdbcType=VARCHAR},
+      town_id = #{townId,jdbcType=VARCHAR},
+      store_name = #{storeName,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_id = #{createId,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      update_id = #{updateId,jdbcType=VARCHAR},
+      map_x = #{mapX,jdbcType=VARCHAR},
+      map_y = #{mapY,jdbcType=VARCHAR},
+      log_url = #{logUrl,jdbcType=VARCHAR},
+      online_time = #{onlineTime,jdbcType=VARCHAR},
+      store_mobile = #{storeMobile,jdbcType=VARCHAR},
+      store_telphone = #{storeTelphone,jdbcType=VARCHAR},
+      store_wx = #{storeWx,jdbcType=VARCHAR},
+      store_qq = #{storeQq,jdbcType=VARCHAR},
+      store_rank = #{storeRank,jdbcType=BIGINT},
+      is_disable = #{isDisable,jdbcType=INTEGER},
+      is_destory = #{isDestory,jdbcType=INTEGER},
+      is_del = #{isDel,jdbcType=INTEGER},
+      store_desc = #{storeDesc,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.icefrog.strollit.business.model.TbStore" >
+    update tb_store
+    set admin_id = #{adminId,jdbcType=VARCHAR},
+      province_id = #{provinceId,jdbcType=VARCHAR},
+      city_id = #{cityId,jdbcType=VARCHAR},
+      county_id = #{countyId,jdbcType=VARCHAR},
+      town_id = #{townId,jdbcType=VARCHAR},
+      store_name = #{storeName,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_id = #{createId,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      update_id = #{updateId,jdbcType=VARCHAR},
+      map_x = #{mapX,jdbcType=VARCHAR},
+      map_y = #{mapY,jdbcType=VARCHAR},
+      log_url = #{logUrl,jdbcType=VARCHAR},
+      online_time = #{onlineTime,jdbcType=VARCHAR},
+      store_mobile = #{storeMobile,jdbcType=VARCHAR},
+      store_telphone = #{storeTelphone,jdbcType=VARCHAR},
+      store_wx = #{storeWx,jdbcType=VARCHAR},
+      store_qq = #{storeQq,jdbcType=VARCHAR},
+      store_rank = #{storeRank,jdbcType=BIGINT},
+      is_disable = #{isDisable,jdbcType=INTEGER},
+      is_destory = #{isDestory,jdbcType=INTEGER},
+      is_del = #{isDel,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

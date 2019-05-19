@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.icefrog.strollit.business.dao.TbHelpStrapMapper" >
+  <resultMap id="BaseResultMap" type="com.icefrog.strollit.business.model.TbHelpStrap" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="user_id" property="userId" jdbcType="VARCHAR" />
+    <result column="pet_id" property="petId" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="start_time" property="startTime" jdbcType="TIMESTAMP" />
+    <result column="end_time" property="endTime" jdbcType="TIMESTAMP" />
+    <result column="is_urgent" property="isUrgent" jdbcType="INTEGER" />
+    <result column="is_use_pet_info" property="isUsePetInfo" jdbcType="INTEGER" />
+    <result column="pet_img_list" property="petImgList" jdbcType="VARCHAR" />
+    <result column="is_del" property="isDel" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.icefrog.strollit.business.model.TbHelpStrap" extends="BaseResultMap" >
+    <result column="comments" property="comments" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, user_id, pet_id, create_time, update_time, start_time, end_time, is_urgent, is_use_pet_info, 
+    pet_img_list, is_del
+  </sql>
+  <sql id="Blob_Column_List" >
+    comments
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from tb_help_strap
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from tb_help_strap
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.icefrog.strollit.business.model.TbHelpStrap" >
+    insert into tb_help_strap (id, user_id, pet_id, 
+      create_time, update_time, start_time, 
+      end_time, is_urgent, is_use_pet_info, 
+      pet_img_list, is_del, comments
+      )
+    values (#{id,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{petId,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{startTime,jdbcType=TIMESTAMP}, 
+      #{endTime,jdbcType=TIMESTAMP}, #{isUrgent,jdbcType=INTEGER}, #{isUsePetInfo,jdbcType=INTEGER}, 
+      #{petImgList,jdbcType=VARCHAR}, #{isDel,jdbcType=INTEGER}, #{comments,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.icefrog.strollit.business.model.TbHelpStrap" >
+    insert into tb_help_strap
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="petId != null" >
+        pet_id,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="startTime != null" >
+        start_time,
+      </if>
+      <if test="endTime != null" >
+        end_time,
+      </if>
+      <if test="isUrgent != null" >
+        is_urgent,
+      </if>
+      <if test="isUsePetInfo != null" >
+        is_use_pet_info,
+      </if>
+      <if test="petImgList != null" >
+        pet_img_list,
+      </if>
+      <if test="isDel != null" >
+        is_del,
+      </if>
+      <if test="comments != null" >
+        comments,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="petId != null" >
+        #{petId,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="startTime != null" >
+        #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null" >
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isUrgent != null" >
+        #{isUrgent,jdbcType=INTEGER},
+      </if>
+      <if test="isUsePetInfo != null" >
+        #{isUsePetInfo,jdbcType=INTEGER},
+      </if>
+      <if test="petImgList != null" >
+        #{petImgList,jdbcType=VARCHAR},
+      </if>
+      <if test="isDel != null" >
+        #{isDel,jdbcType=INTEGER},
+      </if>
+      <if test="comments != null" >
+        #{comments,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.icefrog.strollit.business.model.TbHelpStrap" >
+    update tb_help_strap
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="petId != null" >
+        pet_id = #{petId,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="startTime != null" >
+        start_time = #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null" >
+        end_time = #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isUrgent != null" >
+        is_urgent = #{isUrgent,jdbcType=INTEGER},
+      </if>
+      <if test="isUsePetInfo != null" >
+        is_use_pet_info = #{isUsePetInfo,jdbcType=INTEGER},
+      </if>
+      <if test="petImgList != null" >
+        pet_img_list = #{petImgList,jdbcType=VARCHAR},
+      </if>
+      <if test="isDel != null" >
+        is_del = #{isDel,jdbcType=INTEGER},
+      </if>
+      <if test="comments != null" >
+        comments = #{comments,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.icefrog.strollit.business.model.TbHelpStrap" >
+    update tb_help_strap
+    set user_id = #{userId,jdbcType=VARCHAR},
+      pet_id = #{petId,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      start_time = #{startTime,jdbcType=TIMESTAMP},
+      end_time = #{endTime,jdbcType=TIMESTAMP},
+      is_urgent = #{isUrgent,jdbcType=INTEGER},
+      is_use_pet_info = #{isUsePetInfo,jdbcType=INTEGER},
+      pet_img_list = #{petImgList,jdbcType=VARCHAR},
+      is_del = #{isDel,jdbcType=INTEGER},
+      comments = #{comments,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.icefrog.strollit.business.model.TbHelpStrap" >
+    update tb_help_strap
+    set user_id = #{userId,jdbcType=VARCHAR},
+      pet_id = #{petId,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      start_time = #{startTime,jdbcType=TIMESTAMP},
+      end_time = #{endTime,jdbcType=TIMESTAMP},
+      is_urgent = #{isUrgent,jdbcType=INTEGER},
+      is_use_pet_info = #{isUsePetInfo,jdbcType=INTEGER},
+      pet_img_list = #{petImgList,jdbcType=VARCHAR},
+      is_del = #{isDel,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

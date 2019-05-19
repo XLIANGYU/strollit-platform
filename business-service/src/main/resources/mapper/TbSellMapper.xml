@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.icefrog.strollit.business.dao.TbSellMapper" >
+  <resultMap id="BaseResultMap" type="com.icefrog.strollit.business.model.TbSell" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="user_id" property="userId" jdbcType="VARCHAR" />
+    <result column="product_name" property="productName" jdbcType="VARCHAR" />
+    <result column="origin_price" property="originPrice" jdbcType="VARCHAR" />
+    <result column="sell_price" property="sellPrice" jdbcType="VARCHAR" />
+    <result column="money_type" property="moneyType" jdbcType="VARCHAR" />
+    <result column="buy_src" property="buySrc" jdbcType="VARCHAR" />
+    <result column="is_invoce" property="isInvoce" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="is_del" property="isDel" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.icefrog.strollit.business.model.TbSell" extends="BaseResultMap" >
+    <result column="comments" property="comments" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, user_id, product_name, origin_price, sell_price, money_type, buy_src, is_invoce, 
+    create_time, status, is_del
+  </sql>
+  <sql id="Blob_Column_List" >
+    comments
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from tb_sell
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from tb_sell
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.icefrog.strollit.business.model.TbSell" >
+    insert into tb_sell (id, user_id, product_name, 
+      origin_price, sell_price, money_type, 
+      buy_src, is_invoce, create_time, 
+      status, is_del, comments
+      )
+    values (#{id,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{productName,jdbcType=VARCHAR}, 
+      #{originPrice,jdbcType=VARCHAR}, #{sellPrice,jdbcType=VARCHAR}, #{moneyType,jdbcType=VARCHAR}, 
+      #{buySrc,jdbcType=VARCHAR}, #{isInvoce,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{status,jdbcType=VARCHAR}, #{isDel,jdbcType=INTEGER}, #{comments,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.icefrog.strollit.business.model.TbSell" >
+    insert into tb_sell
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="productName != null" >
+        product_name,
+      </if>
+      <if test="originPrice != null" >
+        origin_price,
+      </if>
+      <if test="sellPrice != null" >
+        sell_price,
+      </if>
+      <if test="moneyType != null" >
+        money_type,
+      </if>
+      <if test="buySrc != null" >
+        buy_src,
+      </if>
+      <if test="isInvoce != null" >
+        is_invoce,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="isDel != null" >
+        is_del,
+      </if>
+      <if test="comments != null" >
+        comments,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="productName != null" >
+        #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="originPrice != null" >
+        #{originPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="sellPrice != null" >
+        #{sellPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="moneyType != null" >
+        #{moneyType,jdbcType=VARCHAR},
+      </if>
+      <if test="buySrc != null" >
+        #{buySrc,jdbcType=VARCHAR},
+      </if>
+      <if test="isInvoce != null" >
+        #{isInvoce,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="isDel != null" >
+        #{isDel,jdbcType=INTEGER},
+      </if>
+      <if test="comments != null" >
+        #{comments,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.icefrog.strollit.business.model.TbSell" >
+    update tb_sell
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="productName != null" >
+        product_name = #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="originPrice != null" >
+        origin_price = #{originPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="sellPrice != null" >
+        sell_price = #{sellPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="moneyType != null" >
+        money_type = #{moneyType,jdbcType=VARCHAR},
+      </if>
+      <if test="buySrc != null" >
+        buy_src = #{buySrc,jdbcType=VARCHAR},
+      </if>
+      <if test="isInvoce != null" >
+        is_invoce = #{isInvoce,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="isDel != null" >
+        is_del = #{isDel,jdbcType=INTEGER},
+      </if>
+      <if test="comments != null" >
+        comments = #{comments,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.icefrog.strollit.business.model.TbSell" >
+    update tb_sell
+    set user_id = #{userId,jdbcType=VARCHAR},
+      product_name = #{productName,jdbcType=VARCHAR},
+      origin_price = #{originPrice,jdbcType=VARCHAR},
+      sell_price = #{sellPrice,jdbcType=VARCHAR},
+      money_type = #{moneyType,jdbcType=VARCHAR},
+      buy_src = #{buySrc,jdbcType=VARCHAR},
+      is_invoce = #{isInvoce,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=VARCHAR},
+      is_del = #{isDel,jdbcType=INTEGER},
+      comments = #{comments,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.icefrog.strollit.business.model.TbSell" >
+    update tb_sell
+    set user_id = #{userId,jdbcType=VARCHAR},
+      product_name = #{productName,jdbcType=VARCHAR},
+      origin_price = #{originPrice,jdbcType=VARCHAR},
+      sell_price = #{sellPrice,jdbcType=VARCHAR},
+      money_type = #{moneyType,jdbcType=VARCHAR},
+      buy_src = #{buySrc,jdbcType=VARCHAR},
+      is_invoce = #{isInvoce,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=VARCHAR},
+      is_del = #{isDel,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>
