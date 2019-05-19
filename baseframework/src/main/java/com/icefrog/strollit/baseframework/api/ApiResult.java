@@ -16,7 +16,7 @@ import java.util.concurrent.ConcurrentHashMap;
  *
  * @author icefrog.su@qq.com
  */
-public class ApiResult<T> implements Serializable {
+public class ApiResult<T extends Object> implements Serializable {
     private static final long serialVersionUID = -3624770785365476720L;
     
 	public static final Integer CODE_SUCCESS        	= 0;  // 响应成功
@@ -37,7 +37,7 @@ public class ApiResult<T> implements Serializable {
      * @param data 需要返回的数据对象
      * @return ApiResult object with success status
      */
-	public ApiResult success(T data){
+	public ApiResult<T> success(T data){
         return new ApiResult<T>().setCode(ApiResult.CODE_SUCCESS).setMessage(ApiResult.SUCCESS_MESSAGE).setData(data);
     }
     
@@ -48,7 +48,7 @@ public class ApiResult<T> implements Serializable {
      * @param message 自定义消息
      * @return ApiResult object with success status
      */
-    public ApiResult success(String message, T data){
+    public ApiResult<T>  success(String message, T data){
         return new ApiResult<T>().setCode(ApiResult.CODE_SUCCESS).setMessage(message).setData(data);
     }
     
@@ -58,7 +58,7 @@ public class ApiResult<T> implements Serializable {
      * @param data 需要返回的数据对象
      * @return ApiResult object with error status
      */
-    public ApiResult error(T data){
+    public ApiResult<T>  error(T data){
         return new ApiResult<T>().setCode(ApiResult.CODE_FAILED).setMessage(ApiResult.FAILED_MESSAGE).setData(data);
     }
     
@@ -69,7 +69,7 @@ public class ApiResult<T> implements Serializable {
      * @param data 需要返回的数据对象
      * @return ApiResult object with error status
      */
-    public ApiResult error(String message, T data){
+    public ApiResult<T>  error(String message, T data){
         return new ApiResult<T>().setCode(ApiResult.CODE_FAILED).setMessage(message).setData(data);
     }
 	
