@@ -8,6 +8,7 @@
 package com.icefrog.strollit.user;
 
 import lombok.extern.slf4j.Slf4j;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
@@ -21,6 +22,7 @@ import org.springframework.context.annotation.ComponentScan;
 @EnableFeignClients
 @SpringBootApplication
 @ComponentScan(basePackages = {"com.icefrog.strollit"})
+@MapperScan("com.icefrog.strollit.user.dao")
 public class UserApplication implements ApplicationRunner {
     
     public static void main(String[] args) {

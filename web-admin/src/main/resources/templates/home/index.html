@@ -2,14 +2,17 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>test thymeleaf</title>
-    <link th:href="@{/css/common.css}" rel="stylesheet"/>
+    <title>Stroll it! 总部管理平台</title>
     <link href="https://unpkg.com/element-ui@2.8.2/lib/theme-chalk/index.css" rel="stylesheet"/>
+    <link th:href="@{/css/common.css}" rel="stylesheet"/>
 
     <script th:src="@{/js/jquery.min.js}"></script>
     <script th:src="@{/js/Vue.js}"></script>
+    <script th:src="@{/js/element-ui/index.js}"></script>
     <script th:src="@{/js/common.js}"></script>
-    <script src="https://unpkg.com/element-ui@2.8.2/lib/index.js"></script>
+    <script th:src="@{/js/axios/axios.min.js}"></script>
+    <script th:src="@{/js/url-search-params-polyfill/index.js}"></script>
+    <script th:src="@{/js/babel-polyfill/polyfill.min.js}"></script>
 
 
     <style>
@@ -35,40 +38,73 @@
 <div id="main" style="height: 100%;">
 
 
-    <el-container style="height: 100%; border: 1px solid #eee">
+    <el-container style="height: 99%; border: 0px solid #eee;">
         <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
-            <el-menu :unique-opened="true">
+            <div style="width: 100%;height: 80px;">
+                <img src="/images/logo.png" style="height: 100%;width:100%;">
+            </div>
+            <el-menu :unique-opened="true" style="border-right:none;">
                 <el-submenu index="1">
-                    <template slot="title"><i class="el-icon-message"></i>导航一</template>
+                    <template slot="title"><i class="el-icon-s-tools"></i>系统设置</template>
                     <el-menu-item-group>
-                        <el-menu-item onclick="linkerTo(this);" index="2-3"><a href="#" target="master_iframe">商品Spu</a></el-menu-item>
-                        <el-menu-item onclick="linkerTo(this);" index="1-2"><a href="https://www.qq.com" target="master_iframe"></a>选项2</el-menu-item>
+                        <el-menu-item onclick="linkerTo(this);" index="1-1"><a href="javascript:void(0);" target="master_iframe"></a>用户列表</el-menu-item>
+                        <el-menu-item onclick="linkerTo(this);" index="1-2"><a href="/role/toAddRole" target="master_iframe"></a>角色列表</el-menu-item>
+                        <el-menu-item onclick="linkerTo(this);" index="1-3"><a href="javascript:void(0);" target="master_iframe"></a>资源配置</el-menu-item>
+                        <el-menu-item onclick="linkerTo(this);" index="1-4"><a href="javascript:void(0);" target="master_iframe"></a>系统通知</el-menu-item>
+                        <el-menu-item onclick="linkerTo(this);" index="1-5"><a href="javascript:void(0);" target="master_iframe"></a>操作日志</el-menu-item>
+                        <el-menu-item onclick="linkerTo(this);" index="1-6"><a href="javascript:void(0);" target="master_iframe"></a>短信记录</el-menu-item>
+                        <el-menu-item onclick="linkerTo(this);" index="1-7"><a href="javascript:void(0);" target="master_iframe"></a>登录记录</el-menu-item>
+                        <el-menu-item onclick="linkerTo(this);" index="1-8"><a href="javascript:void(0);" target="master_iframe"></a>系统信息</el-menu-item>
+                        <el-menu-item onclick="linkerTo(this);" index="1-8"><a href="javascript:void(0);" target="master_iframe"></a>地区信息</el-menu-item>
                     </el-menu-item-group>
-                        <el-menu-item index="1-3">选项3</el-menu-item>
+                </el-submenu>
+                <el-submenu index="2">
+                    <template slot="title"><i class="el-icon-s-goods"></i>商品信息</template>
+                    <el-menu-item-group>
+                        <el-menu-item onclick="linkerTo(this);" index="2-1"><a href="javascript:void(0);" target="master_iframe"></a>商品列表</el-menu-item>
                     </el-menu-item-group>
-                    <el-submenu index="1-4">
-                        <template slot="title">选项4</template>
-                        <el-menu-item index="1-4-1">选项4-1</el-menu-item>
-                    </el-submenu>
+                </el-submenu>
+                <el-submenu index="3">
+                    <template slot="title"><i class="el-icon-lollipop"></i>宠物信息</template>
+                    <el-menu-item-group>
+                        <el-menu-item onclick="linkerTo(this);" index="3-1"><a href="javascript:void(0);" target="master_iframe"></a>宠物类型</el-menu-item>
+                        <el-menu-item onclick="linkerTo(this);" index="3-2"><a href="javascript:void(0);" target="master_iframe"></a>宠物种类</el-menu-item>
+                        <el-menu-item onclick="linkerTo(this);" index="3-3"><a href="javascript:void(0);" target="master_iframe"></a>宠物列表</el-menu-item>
+                    </el-menu-item-group>
+                </el-submenu>
+                <el-submenu index="4">
+                    <template slot="title"><i class="el-icon-s-marketing"></i>运营中心</template>
+                    <el-menu-item-group>
+                        <el-menu-item onclick="linkerTo(this);" index="4-1"><a href="javascript:void(0);" target="master_iframe"></a>反馈列表</el-menu-item>
+                        <el-menu-item onclick="linkerTo(this);" index="4-2"><a href="javascript:void(0);" target="master_iframe"></a>门店列表</el-menu-item>
+                        <el-menu-item onclick="linkerTo(this);" index="4-2"><a href="javascript:void(0);" target="master_iframe"></a>论坛中心</el-menu-item>
+                        <el-menu-item onclick="linkerTo(this);" index="4-2"><a href="javascript:void(0);" target="master_iframe"></a>文章发布</el-menu-item>
+                    </el-menu-item-group>
+                </el-submenu>
+                <el-submenu index="5">
+                    <template slot="title"><i class="el-icon-s-claim"></i>订单中心</template>
+                    <el-menu-item-group>
+                        <el-menu-item onclick="linkerTo(this);" index="5-1"><a href="javascript:void(0);" target="master_iframe"></a>订单列表</el-menu-item>
+                    </el-menu-item-group>
                 </el-submenu>
             </el-menu>
         </el-aside>
 
         <el-container>
-            <el-header style="text-align: right; font-size: 12px">
+            <el-header style="text-align: right; font-size: 14px;background-color: white; box-shadow: 0px 1px 18px 0px #eae7e7;">
                 <el-dropdown>
                     <i class="el-icon-setting" style="margin-right: 15px"></i>
                     <el-dropdown-menu slot="dropdown">
-                        <el-dropdown-item>查看</el-dropdown-item>
-                        <el-dropdown-item>新增</el-dropdown-item>
-                        <el-dropdown-item>删除</el-dropdown-item>
+                        <el-dropdown-item>查看详情</el-dropdown-item>
+                        <el-dropdown-item>修改密码</el-dropdown-item>
+                        <el-dropdown-item>退出登录</el-dropdown-item>
                     </el-dropdown-menu>
                 </el-dropdown>
                 <span>王小虎</span>
             </el-header>
 
-            <el-main>
-                <iframe src="https://baidu.com" width="100%" height="100%" frameborder="0" name="master_iframe" style="overflow: hidden;"></iframe>
+            <el-main style="overflow: hidden;margin:0 0 0 0;">
+                <iframe src="/system/toMainPage" width="100%" height="100%" frameborder="0" name="master_iframe"></iframe>
             </el-main>
         </el-container>
     </el-container>

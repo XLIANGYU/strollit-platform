@@ -5,4 +5,167 @@ html, body {
 body {
     padding: 0px;
     margin: 0px;
+    font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+}
+
+.body-header{
+    text-align: left;
+    padding-left:0.5%;
+    padding-top:0.5%;
+    margin-left:0.5%;
+    margin-right:0.5%;
+    margin-bottom:10px;
+    background-color: #ffffff;
+    box-shadow: 0px 1px 18px 0px #eae7e7;
+    border-radius: 8px;
+    height: 30px;
+}
+
+.body-main{
+    background-color: #ffffff;
+    box-shadow: 0px 1px 18px 0px #eae7e7;
+    border-radius: 8px;
+    min-height:500px;
+    padding-left:0.5%;
+    padding-top:0.5%;
+    margin-left:0.5%;
+    margin-right:0.5%;
+    margin-bottom:1%;
+}
+
+.function-buttons{
+    padding-top:30px;
+    margin-top:20px;
+    margin-bottom:30px;
+    margin-left:30px;
+    padding-bottom:20px;
+    width:100%;
+    border:none;
+}
+
+/***全局修改默认checkbox样式*/
+.el-checkbox{
+    color:#b1b3b9;
+}
+.el-checkbox__input.is-checked+.el-checkbox__label{
+    color:#b1b3b9;
+}
+.el-checkbox__input.is-checked .el-checkbox__inner, .el-checkbox__input.is-indeterminate .el-checkbox__inner{
+    background-color:#ff727a;
+    border-color:#ff727a;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*导入按钮*/
+.btn-import,.btn-import:hover,.btn-import:active,.btn-import:visited,.btn-import:focus{
+    color: #ffffff;
+    background-color: #acc02b;
+    border-radius: 25px;
+    border:none;
+}
+/*导出按钮*/
+.btn-export,.btn-export:hover,.btn-export:active,.btn-export:visited,.btn-export:focus{
+    color: #ffffff;
+    background-color: #e53551;
+    border-radius: 25px;
+    border:none;
+}
+/*新增/新建按钮*/
+.btn-add,.btn-add:hover,.btn-add:active,.btn-add:visited,.btn-add:focus{
+    color: #ffffff;
+    background-color: #009aa0;
+    border-radius: 25px;
+    border:none;
+}
+/*返回/退出按钮*/
+.btn-back,.btn-back:hover,.btn-back:active,.btn-back:visited,.btn-back:focus{
+    color: #ffffff;
+    background-color: #f2af25;
+    border-radius: 25px;
+    border:none;
+}
+/*确认按钮*/
+.btn-confirm,.btn-confirm:hover,.btn-confirm:active,.btn-confirm:visited,.btn-confirm:focus{
+    color: #ffffff;
+    background-color: #24b3d7;
+    border-radius: 25px;
+    border:none;
+}
+/*删除按钮*/
+.btn-delete,.btn-delete:hover,.btn-delete:active,.btn-delete:visited,.btn-delete:focus{
+    color: #ffffff;
+    background-color: #ee8d7a;
+    border-radius: 25px;
+    border:none;
+}
+/*编辑按钮*/
+.btn-edit,.btn-edit:hover,.btn-edit:active,.btn-edit:visited,.btn-edit:focus{
+    color: #ffffff;
+    background-color: #cb6b78;
+    border-radius: 25px;
+    border:none;
+}
+/*停用按钮*/
+.btn-disabled,.btn-disabled:hover,.btn-disabled:active,.btn-disabled:visited,.btn-disabled:focus{
+    color: #ffffff;
+    background-color: #69abe1;
+    border-radius: 25px;
+    border:none;
+}
+/*启用按钮*/
+.btn-enable,.btn-enable:hover,.btn-enable:active,.btn-enable:visited,.btn-enable:focus{
+    color: #ffffff;
+    background-color: #1f9f51;
+    border-radius: 25px;
+    border:none;
+}
+/*更新按钮*/
+.btn-update,.btn-update:hover,.btn-update:active,.btn-update:visited,.btn-update:focus{
+    color: #ffffff;
+    background-color: #644491;
+    border-radius: 25px;
+    border:none;
+}
+/*保存按钮*/
+.btn-save,.btn-save:hover,.btn-save:active,.btn-save:visited,.btn-save:focus{
+    color: #ffffff;
+    background-color: #dd382c;
+    border-radius: 25px;
+    border:none;
+}
+/*注销按钮*/
+.btn-writeoff,.btn-writeoff:hover,.btn-writeoff:active,.btn-writeoff:visited,.btn-writeoff:focus{
+    color: #ffffff;
+    background-color: #af994d;
+    border-radius: 25px;
+    border:none;
+}
+/*审批按钮*/
+.btn-approval,.btn-approval:hover,.btn-approval:active,.btn-approval:visited,.btn-approval:focus{
+    color: #ffffff;
+    background-color: #af994d;
+    border-radius: 25px;
+    border:none;
+}
+/*搜索按钮*/
+.btn-search,.btn-search:hover,.btn-search:active,.btn-search:visited,.btn-search:focus{
+    color: #ffffff;
+    background-color: #24b3d7;
+    border-radius: 25px;
+    border:none;
 }

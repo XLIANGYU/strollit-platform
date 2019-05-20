@@ -10,8 +10,12 @@ public class SystemController {
 
     @RequestMapping("/index")
     public String toIndex(){
-        
         return "home/index";
+    }
+    
+    @RequestMapping("/toMainPage")
+    public String toMainPage(){
+        return "home/main";
     }
 
 }

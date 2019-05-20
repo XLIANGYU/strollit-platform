@@ -5441,7 +5441,7 @@
 
     /*  */
 
-    // these are reserved for web because they are directly compiled away
+    // these are reserved for api because they are directly compiled away
     // during template compilation
     var isReservedAttr = makeMap('style,class');
 
@@ -7655,7 +7655,7 @@
         }
     }
 
-    // check platforms/web/util/attrs.js acceptValue
+    // check platforms/api/util/attrs.js acceptValue
 
 
     function shouldUpdateValue (elm, checkVal) {
