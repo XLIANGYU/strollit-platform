@@ -7,10 +7,10 @@
 
 package com.icefrog.strollit.admin.controller;
 
-import com.icefrog.strollit.admin.dto.RoleDto;
 import com.icefrog.strollit.admin.service.RoleService;
 import com.icefrog.strollit.baseframework.api.ApiResult;
 import com.icefrog.strollit.baseframework.web.ApiBaseController;
+import com.icefrog.strollit.user.dto.RoleDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

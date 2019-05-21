@@ -8,9 +8,9 @@
 package com.icefrog.strollit.admin.client;
 
 import com.icefrog.strollit.admin.client.fallback.RoleFeignClientFallback;
-import com.icefrog.strollit.admin.dto.RoleDto;
 import com.icefrog.strollit.baseframework.api.ApiResult;
 import com.icefrog.strollit.baseframework.microserver.ServiceId;
+import com.icefrog.strollit.user.dto.RoleDto;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestBody;

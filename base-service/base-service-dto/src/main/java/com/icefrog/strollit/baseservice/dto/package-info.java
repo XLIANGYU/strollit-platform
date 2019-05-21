@@ -1,0 +1,1 @@
+package com.icefrog.strollit.baseservice.dto;

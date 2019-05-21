@@ -1,19 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding">
+  <component name="Encoding" addBOMForNewFiles="with NO BOM">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/base-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/base-service/base-service-api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/base-service/base-service-dto" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/base-service/src/main/resources/application.properties" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/baseframework" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/business-service" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/business-service/src/main/resources/application.properties" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/order-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/order-service/order-service-api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/order-service/order-service-dto" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/order-service/src/main/resources/application.properties" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/register-eureka" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/register-eureka/src/main/resources/application.properties" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/strollit-zipkin" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/user-service" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/user-service/src/main/resources/application.properties" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/user-service/user-service-api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/user-service/user-service-api/src/main/resources/application.properties" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/user-service/user-service-dto" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/web-admin" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/web-admin/src/main/resources/application.properties" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/web-order-service" charset="UTF-8" />

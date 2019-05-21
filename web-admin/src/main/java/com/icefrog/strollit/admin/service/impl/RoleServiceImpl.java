@@ -8,10 +8,10 @@
 package com.icefrog.strollit.admin.service.impl;
 
 import com.icefrog.strollit.admin.client.RoleFeignClient;
-import com.icefrog.strollit.admin.dto.RoleDto;
 import com.icefrog.strollit.admin.service.RoleService;
 import com.icefrog.strollit.baseframework.api.ApiResult;
 import com.icefrog.strollit.baseframework.web.BaseServer;
+import com.icefrog.strollit.user.dto.RoleDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -7,8 +7,8 @@
 
 package com.icefrog.strollit.admin.service;
 
-import com.icefrog.strollit.admin.dto.RoleDto;
 import com.icefrog.strollit.baseframework.api.ApiResult;
+import com.icefrog.strollit.user.dto.RoleDto;
 
 public interface RoleService {
     

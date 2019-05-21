@@ -3,13 +3,19 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/base-service/base-service.iml" filepath="$PROJECT_DIR$/base-service/base-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/base-service/base-service-api/base-service-api.iml" filepath="$PROJECT_DIR$/base-service/base-service-api/base-service-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/base-service/base-service-dto/base-service-dto.iml" filepath="$PROJECT_DIR$/base-service/base-service-dto/base-service-dto.iml" />
       <module fileurl="file://$PROJECT_DIR$/baseframework/baseframework.iml" filepath="$PROJECT_DIR$/baseframework/baseframework.iml" />
       <module fileurl="file://$PROJECT_DIR$/business-service/business-service.iml" filepath="$PROJECT_DIR$/business-service/business-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/order-service/order-service.iml" filepath="$PROJECT_DIR$/order-service/order-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/order-service/order-service-api/order-service-api.iml" filepath="$PROJECT_DIR$/order-service/order-service-api/order-service-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/order-service/order-service-dto/order-service-dto.iml" filepath="$PROJECT_DIR$/order-service/order-service-dto/order-service-dto.iml" />
       <module fileurl="file://$PROJECT_DIR$/register-eureka/register-eureka.iml" filepath="$PROJECT_DIR$/register-eureka/register-eureka.iml" />
       <module fileurl="file://$PROJECT_DIR$/strollit-platform.iml" filepath="$PROJECT_DIR$/strollit-platform.iml" />
       <module fileurl="file://$PROJECT_DIR$/strollit-zipkin/strollit-zipkin.iml" filepath="$PROJECT_DIR$/strollit-zipkin/strollit-zipkin.iml" />
       <module fileurl="file://$PROJECT_DIR$/user-service/user-service.iml" filepath="$PROJECT_DIR$/user-service/user-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/user-service/user-service-api/user-service-api.iml" filepath="$PROJECT_DIR$/user-service/user-service-api/user-service-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/user-service/user-service-dto/user-service-dto.iml" filepath="$PROJECT_DIR$/user-service/user-service-dto/user-service-dto.iml" />
       <module fileurl="file://$PROJECT_DIR$/web-admin/web-admin.iml" filepath="$PROJECT_DIR$/web-admin/web-admin.iml" />
       <module fileurl="file://$PROJECT_DIR$/web-order-service/web-order-service.iml" filepath="$PROJECT_DIR$/web-order-service/web-order-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/web-portal-service/web-portal-service.iml" filepath="$PROJECT_DIR$/web-portal-service/web-portal-service.iml" />

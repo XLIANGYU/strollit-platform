@@ -8,9 +8,9 @@
 package com.icefrog.strollit.admin.client.fallback;
 
 import com.icefrog.strollit.admin.client.RoleFeignClient;
-import com.icefrog.strollit.admin.dto.RoleDto;
 import com.icefrog.strollit.baseframework.api.ApiResult;
 import com.icefrog.strollit.baseframework.feign.BaseFallback;
+import com.icefrog.strollit.user.dto.RoleDto;
 import feign.hystrix.FallbackFactory;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
