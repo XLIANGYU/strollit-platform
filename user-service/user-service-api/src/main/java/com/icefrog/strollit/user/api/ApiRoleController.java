@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 /***
  * 角色相关接口
  */
@@ -35,5 +37,16 @@ public class ApiRoleController extends ApiBaseController {
     public ApiResult saveRole(@RequestBody RoleDto roleDto){
         return roleService.saveRole(roleDto);
     }
-
+    
+    /***
+     * 批量保存角色信息, 当角色存在（ID）且未逻辑删除则忽略保存该数据. 具体保存成功的数量
+     * 取决于ApiResult<Integer>指定内容
+     * @param roleDtos role dto list
+     * @return ApiResult<Integer>
+     */
+    @RequestMapping("/batchInsertRole")
+    public ApiResult<Integer> batchInsertRole(@RequestBody List<RoleDto> roleDtos){
+        return roleService.batchSaveRole(roleDtos);
+    }
+    
 }

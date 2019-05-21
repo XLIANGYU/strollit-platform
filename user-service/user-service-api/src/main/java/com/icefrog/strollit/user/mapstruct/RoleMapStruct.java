@@ -21,6 +21,8 @@ public interface RoleMapStruct {
     
     RoleDto toRoleDto(TbRole role);
     
+    List<TbRole> toRoleModes(List<RoleDto> roleDtos);
+    
     List<RoleDto> toRoleDtos(List<TbRole> roles);
     
     TbRole toRoleModel(RoleDto roleDto);

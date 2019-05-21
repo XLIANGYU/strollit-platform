@@ -7,29 +7,26 @@
 
 package com.icefrog.strollit.admin.service.impl;
 
-import com.icefrog.strollit.admin.client.RoleFeignClient;
-import com.icefrog.strollit.admin.service.RoleService;
+import com.icefrog.strollit.admin.client.UserFeignClient;
+import com.icefrog.strollit.admin.service.UserService;
 import com.icefrog.strollit.baseframework.api.ApiResult;
 import com.icefrog.strollit.baseframework.web.BaseServer;
 import com.icefrog.strollit.user.dto.RoleDto;
+import com.icefrog.strollit.user.dto.UserDto;
+import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class RoleServiceImpl extends BaseServer implements RoleService {
+public class UserServiceImpl extends BaseServer implements UserService {
     
     @Autowired
-    private RoleFeignClient feignClient;
+    private UserFeignClient userFeignClient;
     
     @Override
-    public ApiResult saveRole(RoleDto roleDto) {
-        return feignClient.saveRole(roleDto);
-    }
-    
-    @Override
-    public ApiResult<Integer> batchInsertRole(List<RoleDto> roleDtos) {
-        return feignClient.batchInsertRole(roleDtos);
+    public ApiResult<Integer> batchInsertUser(List<UserDto> users) {
+       return userFeignClient.batchInsertUser(users);
     }
 }

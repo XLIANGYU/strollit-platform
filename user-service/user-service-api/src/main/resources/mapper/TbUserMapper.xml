@@ -24,6 +24,16 @@
     id, role_id, provinde_id, city_id, county_id, town_id, account, nick_name, passwd, 
     salt, face_url, wx_token, info_address, sex, is_destory, is_disable, is_del
   </sql>
+    <insert id="batchInsertUser">
+        insert into tb_user(id, role_id, provinde_id, city_id, county_id, town_id, account, passwd, salt, face_url,
+        wx_token, info_address, sex, is_destory, is_disable, is_del) VALUES
+        <foreach collection="list" item="item" index="index"
+                 separator=",">
+            (#{item.id},#{item.roleId},#{item.provindeId},#{item.cityId},#{item.countyId},#{item.townId},#{item.account},
+            #{item.passwd},#{item.salt},#{item.faceUrl},#{item.wxToken},#{item.infoAddress},#{item.sex},#{item.isDestory},
+            #{item.isDisable},#{item.isDel})
+        </foreach>
+    </insert >
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />

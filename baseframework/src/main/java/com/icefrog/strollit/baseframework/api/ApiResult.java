@@ -73,6 +73,13 @@ public class ApiResult<T extends Object> implements Serializable {
         return new ApiResult<T>().setCode(ApiResult.CODE_FAILED).setMessage(message).setData(data);
     }
 	
+    public boolean isSuccess(){
+        return this.code == null ? false : this.code.intValue() == CODE_SUCCESS.intValue();
+    }
+    
+    public boolean isError(){
+        return !isSuccess();
+    }
 
 	public String getMessage() {
 		return message;

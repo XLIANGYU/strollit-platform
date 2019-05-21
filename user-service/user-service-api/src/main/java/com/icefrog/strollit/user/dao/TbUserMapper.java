@@ -1,7 +1,10 @@
 package com.icefrog.strollit.user.dao;
 
 import com.icefrog.strollit.user.model.TbUser;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Repository
 public interface TbUserMapper {
@@ -16,4 +19,6 @@ public interface TbUserMapper {
     int updateByPrimaryKeySelective(TbUser record);
 
     int updateByPrimaryKey(TbUser record);
+    
+    int batchInsertUser(@Param("list")List<TbUser> users);
 }

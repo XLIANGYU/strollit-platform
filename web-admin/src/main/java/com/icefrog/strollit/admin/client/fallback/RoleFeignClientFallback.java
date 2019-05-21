@@ -15,17 +15,23 @@ import feign.hystrix.FallbackFactory;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
-@Slf4j
+import java.util.List;
+
 @Component
 public class RoleFeignClientFallback extends BaseFallback implements FallbackFactory<RoleFeignClient> {
     
     @Override
     public RoleFeignClient create(Throwable throwable) {
         return new RoleFeignClient() {
+            
             @Override
             public ApiResult saveRole(RoleDto roleDto) {
-                log.error("调用角色相关服务失败, 异常信息: ", throwable.getMessage(), throwable);
-                return error("调用角色相关服务失败, " + throwable.getMessage());
+                return errorHandler("调用角色相关服务失败", throwable);
+            }
+    
+            @Override
+            public ApiResult<Integer> batchInsertRole(List<RoleDto> roleDtos) {
+                return errorHandler("调用角色相关服务失败", throwable);
             }
         };
     }

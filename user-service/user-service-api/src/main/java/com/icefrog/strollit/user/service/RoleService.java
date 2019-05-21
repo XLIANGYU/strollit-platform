@@ -10,8 +10,12 @@ package com.icefrog.strollit.user.service;
 import com.icefrog.strollit.baseframework.api.ApiResult;
 import com.icefrog.strollit.user.dto.RoleDto;
 
+import java.util.List;
+
 public interface RoleService {
     
     ApiResult saveRole(RoleDto roleDto);
+    
+    ApiResult<Integer> batchSaveRole(List<RoleDto> roleDtos);
 
 }

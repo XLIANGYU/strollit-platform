@@ -12,7 +12,6 @@
       <module fileurl="file://$PROJECT_DIR$/order-service/order-service-dto/order-service-dto.iml" filepath="$PROJECT_DIR$/order-service/order-service-dto/order-service-dto.iml" />
       <module fileurl="file://$PROJECT_DIR$/register-eureka/register-eureka.iml" filepath="$PROJECT_DIR$/register-eureka/register-eureka.iml" />
       <module fileurl="file://$PROJECT_DIR$/strollit-platform.iml" filepath="$PROJECT_DIR$/strollit-platform.iml" />
-      <module fileurl="file://$PROJECT_DIR$/strollit-zipkin/strollit-zipkin.iml" filepath="$PROJECT_DIR$/strollit-zipkin/strollit-zipkin.iml" />
       <module fileurl="file://$PROJECT_DIR$/user-service/user-service.iml" filepath="$PROJECT_DIR$/user-service/user-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/user-service/user-service-api/user-service-api.iml" filepath="$PROJECT_DIR$/user-service/user-service-api/user-service-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/user-service/user-service-dto/user-service-dto.iml" filepath="$PROJECT_DIR$/user-service/user-service-dto/user-service-dto.iml" />

@@ -8,14 +8,12 @@
 package com.icefrog.strollit.admin.service;
 
 import com.icefrog.strollit.baseframework.api.ApiResult;
-import com.icefrog.strollit.user.dto.RoleDto;
+import com.icefrog.strollit.user.dto.UserDto;
 
 import java.util.List;
 
-public interface RoleService {
+public interface UserService {
     
-    ApiResult saveRole(RoleDto roleDto);
+    ApiResult<Integer> batchInsertUser(List<UserDto> users);
     
-    ApiResult<Integer> batchInsertRole(List<RoleDto> roleDtos);
-
 }
