@@ -35,8 +35,8 @@ import java.util.List;
  * @author icefrog.su@qq.com
  */
 @Slf4j
-@Order(1000)
-@Component
+/*@Order(1000)
+@Component*/
 public class PermissionInitEvent implements IEvent, ApplicationRunner {
 
     @Autowired

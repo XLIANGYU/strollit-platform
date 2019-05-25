@@ -11,6 +11,7 @@
     <file url="file://$PROJECT_DIR$/business-service/src/main/resources/application.properties" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/order-service" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/order-service/order-service-api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/order-service/order-service-api/src/main/resources/application.properties" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/order-service/order-service-dto" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/register-eureka" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/register-eureka/src/main/resources/application.properties" charset="UTF-8" />
