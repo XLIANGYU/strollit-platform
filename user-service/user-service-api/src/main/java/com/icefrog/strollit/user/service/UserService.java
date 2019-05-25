@@ -9,11 +9,15 @@ package com.icefrog.strollit.user.service;
 
 import com.icefrog.strollit.baseframework.api.ApiResult;
 import com.icefrog.strollit.user.dto.UserDto;
+import com.icefrog.strollit.user.model.TbRole;
+import com.icefrog.strollit.user.model.TbUser;
 
 import java.util.List;
 
 public interface UserService {
     
     ApiResult<Integer> batchInsertUser(List<UserDto> users);
+    
+    TbUser selectByPrimaryKey(String id);
     
 }

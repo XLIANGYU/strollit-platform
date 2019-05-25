@@ -17,6 +17,7 @@ import com.icefrog.strollit.user.dto.RoleDto;
 import com.icefrog.strollit.user.dto.UserDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
@@ -35,10 +36,13 @@ import java.util.List;
  * @author icefrog.su@qq.com
  */
 @Slf4j
-/*@Order(1000)
-@Component*/
+@Order(1000)
+@Component
 public class PermissionInitEvent implements IEvent, ApplicationRunner {
 
+    @Value("${zoohub.devmode:false}")
+    private boolean devMode;
+    
     @Autowired
     private UserService userService;
     
@@ -94,20 +98,26 @@ public class PermissionInitEvent implements IEvent, ApplicationRunner {
      */
     @Override
     public void run(ApplicationArguments args) throws Exception {
+        if(!devMode) {
+            StopWatch stopWatch = new StopWatch();
+            stopWatch.start();
     
-        StopWatch stopWatch = new StopWatch();
-        stopWatch.start();
+            try {
+                this.init();
         
-        this.init();
+                this.security(this.initCreateRoles());
+        
+                this.security(this.initCreateUsers());
+        
+                this.destroy();
+            } catch (Exception ex) {
+                log.error(ex.getMessage(), ex);
+                this.security(false);
+            }
     
-        this.security(this.initCreateRoles());
-        
-        this.security(this.initCreateUsers());
-        
-        this.destroy();
-    
-        stopWatch.stop();
-        log.info("累计耗时: {}", stopWatch.getTotalTimeSeconds());
+            stopWatch.stop();
+            log.info("累计耗时: {}", stopWatch.getTotalTimeSeconds());
+        }
     }
     
     // 创建角色信息
@@ -131,8 +141,8 @@ public class PermissionInitEvent implements IEvent, ApplicationRunner {
     }
     
     private final void security(boolean exit) {
-        log.error("初始化权限资源失败, 终止服务启动!");
         if(!exit){
+            log.error("初始化权限资源失败, 终止服务启动!");
             System.exit(-1);
         }
     }
@@ -168,7 +178,7 @@ public class PermissionInitEvent implements IEvent, ApplicationRunner {
         user.setSalt(salt);
         user.setIsDestory(0);
         user.setIsDisable(0);
-        user.setIsDestory(0);
+        user.setIsDel(0);
         return user;
     }
 }

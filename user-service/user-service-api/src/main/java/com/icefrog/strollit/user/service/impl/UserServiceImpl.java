@@ -12,6 +12,7 @@ import com.icefrog.strollit.baseframework.web.BaseServer;
 import com.icefrog.strollit.user.dao.TbUserMapper;
 import com.icefrog.strollit.user.dto.UserDto;
 import com.icefrog.strollit.user.mapstruct.UserMapStruct;
+import com.icefrog.strollit.user.model.TbRole;
 import com.icefrog.strollit.user.model.TbUser;
 import com.icefrog.strollit.user.service.UserService;
 import lombok.extern.slf4j.Slf4j;
@@ -39,7 +40,7 @@ public class UserServiceImpl extends BaseServer implements UserService {
             // 检查userDtos中是否存在已落库的数据, 有则排除
             for (int i = usersDtos.size() - 1; i >= 0; i--) {
                 UserDto userDto = usersDtos.get(i);
-                TbUser user = userMapper.selectByPrimaryKey(userDto.getId());
+                TbUser user = this.selectByPrimaryKey(userDto.getId());
                 if (user != null && user.getIsDel() == 0) {
                     usersDtos.remove(i);
                     continue;
@@ -48,12 +49,19 @@ public class UserServiceImpl extends BaseServer implements UserService {
             }
     
             List<TbUser> users = UserMapStruct.INSTANCE.toUserModes(usersDtos);
+            if(CollectionUtils.isEmpty(users)){
+                return new ApiResult<Integer>().success(0);
+            }
             userMapper.batchInsertUser(users);
-    
             return new ApiResult<Integer>().success(count);
         } catch (Exception ex) {
             log.error("批量保存用户引发异常, 异常信息: " +ex.getMessage(), ex);
             return error("批量保存用户引发异常, 异常信息: "+ ex.getMessage());
         }
+    }
+    
+    @Override
+    public TbUser selectByPrimaryKey(String id) {
+        return userMapper.selectByPrimaryKey(id);
     }
 }

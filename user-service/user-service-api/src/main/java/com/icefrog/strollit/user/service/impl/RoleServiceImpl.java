@@ -64,7 +64,7 @@ public class RoleServiceImpl extends BaseServer implements RoleService {
             // 检查roleDtos中是否存在已落库的数据, 有则排除
             for (int i = roleDtos.size() - 1; i >= 0; i--) {
                 RoleDto roleDto = roleDtos.get(i);
-                TbRole role = roleMapper.selectByPrimaryKey(roleDto.getId());
+                TbRole role = this.selectByPrimaryKey(roleDto.getId());
                 if (role != null && role.getIsDel() == 0) {
                     roleDtos.remove(i);
                     continue;
@@ -72,11 +72,19 @@ public class RoleServiceImpl extends BaseServer implements RoleService {
                 count++;
             }
             List<TbRole> roles = RoleMapStruct.INSTANCE.toRoleModes(roleDtos);
+            if(CollectionUtils.isEmpty(roles)){
+                return new ApiResult<Integer>().success(0);
+            }
             roleMapper.batchInsertRole(roles);
             return new ApiResult<Integer>().success(count);
         } catch (Exception ex){
             log.error("批量保存角色引发异常, 异常信息: " +ex.getMessage(), ex);
             return error("批量保存角色引发异常, 异常信息: "+ ex.getMessage());
         }
+    }
+    
+    @Override
+    public TbRole selectByPrimaryKey(String id) {
+        return roleMapper.selectByPrimaryKey(id);
     }
 }
