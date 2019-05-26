@@ -11,6 +11,7 @@ import com.icefrog.strollit.baseframework.constance.BaseConstance;
 import com.icefrog.strollit.baseframework.domain.UserDto;
 import com.icefrog.strollit.baseframework.util.HttpClientUtil;
 import com.icefrog.strollit.baseframework.util.HttpMethod;
+import net.sf.json.JSONObject;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -28,11 +29,15 @@ public abstract class BaseController extends BaseServer implements IController {
     
     /***
      * 获取当前登录用户id, 可能null
-     * @param request HttpServletRequest
      * @return user id
      */
-    public String getUserId(HttpServletRequest request){
-        return (String) request.getAttribute(BaseConstance.LOGIN_USER_ID);
+    public String getUserId(){
+        JSONObject userInfo = this.getUserInfo();
+        return userInfo.getString("id");
+    }
+    
+    private JSONObject getUserInfo(){
+        return JSONObject.fromObject(this.getRequest().getAttribute(BaseConstance.UserInfoHeader));
     }
     
     /***

@@ -13,6 +13,7 @@ import com.icefrog.strollit.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -36,6 +37,16 @@ public class ApiUserController {
     @RequestMapping("/batchInsertUser")
     public ApiResult<Integer> batchInsertUser(@RequestBody List<UserDto> userDtos) {
         return userService.batchInsertUser(userDtos);
+    }
+    
+    /***
+     * 使用account账户信息检索一个用户(仅排除逻辑删除)
+     * @param account 登录账户
+     * @return ApiResult<UserDto>
+     */
+    @RequestMapping("loginWithQueryUser")
+    public ApiResult<UserDto> loginWithQueryUser(@RequestParam(name = "account") String account){
+        return userService.loginWithQueryUser(account);
     }
     
 }

@@ -172,7 +172,7 @@ public class PermissionInitEvent implements IEvent, ApplicationRunner {
         user.setCityId(null);
         user.setCountyId(null);
         user.setTownId(null);
-        user.setCountyId(account);
+        user.setAccount(account);
         user.setNickName(nickName);
         user.setPasswd(PasswdUtils.buildPasswd(passwd, salt));
         user.setSalt(salt);

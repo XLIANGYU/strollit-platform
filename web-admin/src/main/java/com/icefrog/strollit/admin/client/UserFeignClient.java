@@ -15,6 +15,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -24,5 +25,12 @@ public interface UserFeignClient {
     
     @RequestMapping("/api/user/batchInsertUser")
     ApiResult<Integer> batchInsertUser(@RequestBody List<UserDto> userDtos);
-
+    
+    /***
+     * 使用account账户信息检索一个用户(仅排除逻辑删除)
+     * @param account 登录账户
+     * @return ApiResult<UserDto>
+     */
+    @RequestMapping("/api/user/loginWithQueryUser")
+    ApiResult<UserDto> loginWithQueryUser(@RequestParam(name = "account") String account);
 }

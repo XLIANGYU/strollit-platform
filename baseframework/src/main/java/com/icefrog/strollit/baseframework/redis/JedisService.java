@@ -4,21 +4,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.stereotype.Service;
-import redis.clients.jedis.BitOP;
-import redis.clients.jedis.BitPosParams;
-import redis.clients.jedis.GeoCoordinate;
-import redis.clients.jedis.GeoRadiusResponse;
-import redis.clients.jedis.GeoUnit;
-import redis.clients.jedis.Jedis;
-import redis.clients.jedis.JedisPool;
-import redis.clients.jedis.JedisPubSub;
-import redis.clients.jedis.ScanParams;
-import redis.clients.jedis.ScanResult;
-import redis.clients.jedis.SortingParams;
-import redis.clients.jedis.Tuple;
-import redis.clients.jedis.ZParams;
+import redis.clients.jedis.*;
 import redis.clients.jedis.params.geo.GeoRadiusParam;
 import redis.clients.jedis.params.sortedset.ZAddParams;
 import redis.clients.jedis.params.sortedset.ZIncrByParams;
@@ -27,15 +16,21 @@ import redis.clients.jedis.params.sortedset.ZIncrByParams;
  * JRedis 方式操作缓存数据
  */
 @Service("jedisService")
-@ConditionalOnClass(JedisPool.class)
+//@ConditionalOnClass(JedisPool.class)
 public class JedisService {
-
+ 
     /**
      * JedisPool
      */
-    @Autowired(required = false)
+    //@Autowired(required = false)
     private JedisPool jedisPool;
 
+    public JedisService(){
+        JedisPoolConfig jedisPoolConfig = new JedisPoolConfig();
+        // TODO 暂时硬编码
+        this.jedisPool = new JedisPool(jedisPoolConfig, "47.104.237.74", 6379, 2000, "zoohub.cn");
+    }
+    
     /**
      * Set the string value as value of the key. The string can't be longer than 1073741824 bytes (1
      * GB). <p> Time complexity: O(1)

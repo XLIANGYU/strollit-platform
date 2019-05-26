@@ -64,4 +64,19 @@ public class UserServiceImpl extends BaseServer implements UserService {
     public TbUser selectByPrimaryKey(String id) {
         return userMapper.selectByPrimaryKey(id);
     }
+    
+    @Override
+    public ApiResult<UserDto> loginWithQueryUser(String account) {
+        try {
+    
+            TbUser user = userMapper.queryUserWithLogin(account);
+    
+            UserDto userDto = UserMapStruct.INSTANCE.toUserDto(user);
+    
+            return new ApiResult<UserDto>().success(userDto);
+        } catch (Exception ex){
+            log.error(ex.getMessage(), ex);
+            return new ApiResult<UserDto>().error();
+        }
+    }
 }

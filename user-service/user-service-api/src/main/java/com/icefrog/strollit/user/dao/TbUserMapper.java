@@ -21,4 +21,7 @@ public interface TbUserMapper {
     int updateByPrimaryKey(TbUser record);
     
     int batchInsertUser(@Param("list")List<TbUser> users);
+    
+    TbUser queryUserWithLogin(@Param("account") String account);
+    
 }

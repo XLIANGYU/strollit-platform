@@ -8,10 +8,10 @@
     <script th:src="@{/js/jquery.min.js}"></script>
     <script th:src="@{/js/Vue.js}"></script>
     <script th:src="@{/js/element-ui/index.js}"></script>
-    <script th:src="@{/js/common.js}"></script>
     <script th:src="@{/js/axios/axios.min.js}"></script>
     <script th:src="@{/js/url-search-params-polyfill/index.js}"></script>
     <script th:src="@{/js/babel-polyfill/polyfill.min.js}"></script>
+    <script th:src="@{/js/common.js}"></script>
     <style type="text/css">
         body {
             background: url("/images/backgroup-images.jpg");
@@ -159,7 +159,7 @@
                 params.append('password', this.password);
                 params.append("identify",this.identify);
                 axios({
-                    url: '/bumng/login',
+                    url: '/system/doLogin',
                     method: 'post',
                     data: params,
                     headers: {
@@ -169,7 +169,7 @@
                     if(response.data.code == 0){
                         //登录成功,检查是否需要记住密码
                         if(main.isSavePassword){
-                            writeCookie(main.username, main.password, 30);//30天
+                            writeCookie(main.username, main.password,response.data.data.userInfo, 30);//30天
                         }
                         loading.close();
                         window.location.href = response.data.data.callback;
@@ -201,12 +201,13 @@
         document.getElementById('imageCode').src = "/system/imagesCode?r="+Math.random();
     }
 
-    function writeCookie(username,password,exdays){
+    function writeCookie(username,password,userInfo,exdays){
         var exdate = new Date(); //获取时间
         exdate.setTime(exdate.getTime() + 24 * 60 * 60 * 1000 * exdays); //保存的天数
         //字符串拼接cookie
         window.document.cookie = "uname" + "=" + username + ";path=/;expires=" + exdate.toGMTString();
         window.document.cookie = "upass" + "=" + password + ";path=/;expires=" + exdate.toGMTString();
+        window.document.cookie = "userInfo" + "=" + userInfo + ";path=/;expires=" + exdate.toGMTString();
     }
 
     function getCookie(name){

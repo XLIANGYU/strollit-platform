@@ -20,4 +20,6 @@ public interface UserService {
     
     TbUser selectByPrimaryKey(String id);
     
+    ApiResult<UserDto> loginWithQueryUser(String account);
+    
 }

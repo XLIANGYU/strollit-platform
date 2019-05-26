@@ -72,6 +72,10 @@ public class ApiResult<T extends Object> implements Serializable {
     public ApiResult<T>  error(String message, T data){
         return new ApiResult<T>().setCode(ApiResult.CODE_FAILED).setMessage(message).setData(data);
     }
+    
+    public ApiResult<T> error(){
+        return this.error(null);
+    }
 	
     public boolean isSuccess(){
         return this.code == null ? false : this.code.intValue() == CODE_SUCCESS.intValue();

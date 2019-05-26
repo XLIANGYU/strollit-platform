@@ -34,6 +34,9 @@
             #{item.isDisable},#{item.isDel})
         </foreach>
     </insert >
+    <select id="queryUserWithLogin" resultMap="BaseResultMap">
+        select * from tb_user where is_del = 0 and account = #{account}
+    </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />

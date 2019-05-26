@@ -2,6 +2,7 @@ package com.icefrog.strollit.baseframework.web;
 
 import com.icefrog.strollit.baseframework.api.ApiResult;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /***
@@ -37,6 +38,16 @@ public class BaseServer {
      */
     protected ApiResult success(String message, Map<String, Object> data){
         return this.buildApiResult(ApiResult.CODE_SUCCESS, message, data);
+    }
+    
+    protected ApiResult success(Map<String, Object> data){
+        return this.success(ApiResult.SUCCESS_MESSAGE, data);
+    }
+    
+    protected ApiResult success(String key, String value){
+        Map<String, Object> data = new HashMap<>(1);
+        data.put(key, value);
+        return this.success(data);
     }
     
     /***

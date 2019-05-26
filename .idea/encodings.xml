@@ -7,6 +7,7 @@
     <file url="file://$PROJECT_DIR$/base-service/base-service-api/src/main/resources/application.properties" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/base-service/base-service-dto" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/baseframework" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/baseframework/src/main/resources/application.properties" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/business-service" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/business-service/src/main/resources/application.properties" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/order-service" charset="UTF-8" />

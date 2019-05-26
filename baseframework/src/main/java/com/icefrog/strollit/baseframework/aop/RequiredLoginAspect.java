@@ -18,7 +18,9 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Method;
+import java.util.Base64;
 
 
 /***
@@ -49,12 +51,12 @@ public class RequiredLoginAspect {
         RequiredLogin requiredLoginAnnotation = method.getAnnotation(RequiredLogin.class);
 
         if (requiredLoginAnnotation.required()) {
-            String userId = tryFetchUserId(request);
-            if(StringUtils.isBlank(userId)){
+            String userInfo = tryFetchUserInfo(request);
+            if(StringUtils.isBlank(userInfo)){
                 RspUtils.responseErrorApiResultJson("Please login first!", null, response);
                 return null;
             }
-            request.setAttribute(BaseConstance.LOGIN_USER_ID, Base64Util.decodeString(userId));
+            request.setAttribute(BaseConstance.UserInfoHeader, Base64Util.decodeString(userInfo));
         }
         return pjp.proceed();
     }
@@ -67,21 +69,29 @@ public class RequiredLoginAspect {
      * @param request HttpServletRequest
      * @return user id, see {BaseConstance.LOGIN_USER_ID}
      */
-    private String tryFetchUserId(HttpServletRequest request){
-        // try fetch user id with request header
-        if(StringUtils.isNotBlank(request.getHeader(BaseConstance.LOGIN_USER_ID))){
-            return request.getHeader(BaseConstance.LOGIN_USER_ID);
+    private String tryFetchUserInfo(HttpServletRequest request){
+        String userInfo = null;
+        // try fetch user info with request header
+        if(StringUtils.isNotBlank(request.getHeader(BaseConstance.UserInfoHeader))){
+            userInfo = request.getHeader(BaseConstance.UserInfoHeader);
         }
-        // try fetch user id with get/post's parameter
-        if(StringUtils.isNotBlank(request.getParameter(BaseConstance.LOGIN_USER_ID))){
-            return request.getParameter(BaseConstance.LOGIN_USER_ID);
+        // try fetch user info with get/post's parameter
+        if(StringUtils.isNotBlank(request.getParameter(BaseConstance.UserInfoHeader))){
+            userInfo = request.getParameter(BaseConstance.UserInfoHeader);
         }
-        // try fetch user id with cookies
-        String cookieVal = getCookieVal(request.getCookies(), BaseConstance.LOGIN_USER_ID, null);
+        // try fetch user info with cookies
+        String cookieVal = getCookieVal(request.getCookies(), BaseConstance.UserInfoHeader, null);
         if(StringUtils.isNotBlank(cookieVal)){
-            return cookieVal;
+            userInfo = cookieVal;
         }
-        return null;
+        if(userInfo == null){
+            return null;
+        }
+        try {
+            return org.apache.commons.codec.binary.Base64.encodeBase64String(userInfo.getBytes("utf-8"));
+        } catch (Exception ex){
+            return null;
+        }
     }
     
     /***
