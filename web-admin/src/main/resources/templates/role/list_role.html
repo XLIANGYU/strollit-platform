@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Zoo Hub! 总部管理平台</title>
+    <link href="https://unpkg.com/element-ui@2.8.2/lib/theme-chalk/index.css" rel="stylesheet"/>
+    <link th:href="@{/css/common.css}" rel="stylesheet"/>
+
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <script th:src="@{/js/Vue.js}"></script>
+    <script th:src="@{/js/element-ui/index.js}"></script>
+    <script th:src="@{/js/axios/axios.min.js}"></script>
+    <script th:src="@{/js/url-search-params-polyfill/index.js}"></script>
+    <script th:src="@{/js/babel-polyfill/polyfill.min.js}"></script>
+    <script th:src="@{/js/common.js}"></script>
+
+</head>
+<body>
+<!-- 基础Vue挂载 -->
+<div id="main" style="height: 100%;">
+
+    <div class="body-header">
+        <el-breadcrumb separator="/">
+            <el-breadcrumb-item><a>首页</a></el-breadcrumb-item>
+            <el-breadcrumb-item><a>系统设置</a></el-breadcrumb-item>
+            <el-breadcrumb-item><a>角色设置</a></el-breadcrumb-item>
+            <el-breadcrumb-item>角色列表</el-breadcrumb-item>
+        </el-breadcrumb>
+    </div>
+
+    <!-- 搜索框区域 -->
+    <div style="text-align: left;padding-left:30px;padding-top:20px;margin-bottom:2px;background-color: #ffffff;box-shadow: 0px 1px 18px 0px #eae7e7;border-radius: 8px;height: 50px;">
+        <el-form :inline="true" ref="form" size="mini">
+            <el-form-item label="角色：">
+                <el-input v-model="roleName" class="search-input"></el-input>
+            </el-form-item>
+            <el-form-item>
+                <el-button size="mini" @click="doSearch" round class="btn-search">查询</el-button>
+            </el-form-item>
+        </el-form>
+    </div>
+    <div class="body-main">
+        <template>
+            <el-table ref="multipleTable" :data="roleList" tooltip-effect="dark" style="width: 100%"
+                      @selection-change="handleSelectionChange" size="small">
+                <el-table-column v-if="false"prop="id"></el-table-column>
+                <el-table-column
+                    type="selection"
+                    width="55">
+                </el-table-column>
+                <el-table-column
+                    prop="createTime"
+                    label="创建时间"
+                    width="220"
+                    sortable
+                >
+                </el-table-column>
+                <el-table-column
+                    prop="roleName"
+                    label="角色"
+                    width="220">
+                </el-table-column>
+                <el-table-column
+                    prop="remark"
+                    label="描述"
+                    width="220">
+                </el-table-column>
+                <el-table-column
+                    prop="updateId"
+                    label="最后操作人"
+                    show-overflow-tooltip>
+                </el-table-column>
+                <el-table-column label="操作">
+                    <template slot-scope="scope">
+                        <el-button type="text" size="mini" @click="viewDetailHandle(scope.$index, scope.row)">查看详情</el-button>
+                    </template>
+                </el-table-column>
+            </el-table>
+            <div style="margin-top:20px;padding-bottom:20px;padding-left:30px;height:40px;">
+                <!-- 报表底部左侧功能按钮区域 -->
+                <div style="width:40%;float:left;">
+                    <el-form :inline="true" ref="form" size="mini">
+                        <el-button size="mini" @click="deleteRole" class="btn-delete">删除</el-button>
+                        <el-button size="mini" @click="toAddRole" class="btn-add">新增</el-button>
+                    </el-form>
+                </div>
+                <!-- 报表底部右侧分页操作区域 -->
+                <!-- 引入分页控件 -->
+                <div id="pager" style="float:right;width:59%;text-align:right;">
+                    <el-pagination
+                        @size-change="handleSizeChange"
+                        @current-change="handleCurrentChange"
+                        :current-page="pageIndex"
+                        :page-sizes="[5,10,20,50,100,200,500,1000]"
+                        :page-size="pageSize"
+                        layout="total, sizes, prev, pager, next, jumper"
+                        :total="pageTotal" :small="true" :background="true" :pager-count="9">
+                    </el-pagination>
+                </div>
+            </div>
+        </template>
+    </div>
+</div>
+</body>
+
+<!-- page js -->
+<script th:src="@{/js/bussiness/role/list_role.js}"></script>
+</html>

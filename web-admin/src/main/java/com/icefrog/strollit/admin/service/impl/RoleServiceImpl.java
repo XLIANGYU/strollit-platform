@@ -7,6 +7,7 @@
 
 package com.icefrog.strollit.admin.service.impl;
 
+import com.github.pagehelper.PageInfo;
 import com.icefrog.strollit.admin.client.RoleFeignClient;
 import com.icefrog.strollit.admin.service.RoleService;
 import com.icefrog.strollit.baseframework.api.ApiResult;
@@ -31,5 +32,10 @@ public class RoleServiceImpl extends BaseServer implements RoleService {
     @Override
     public ApiResult<Integer> batchInsertRole(List<RoleDto> roleDtos) {
         return feignClient.batchInsertRole(roleDtos);
+    }
+    
+    @Override
+    public ApiResult<PageInfo<RoleDto>>  pageQueryRoleList(Integer pageIndex, Integer pageSize, String name) {
+        return feignClient.pageQueryRoleList(pageIndex, pageSize, name);
     }
 }

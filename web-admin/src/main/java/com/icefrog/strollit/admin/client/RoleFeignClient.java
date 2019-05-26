@@ -7,6 +7,7 @@
 
 package com.icefrog.strollit.admin.client;
 
+import com.github.pagehelper.PageInfo;
 import com.icefrog.strollit.admin.client.fallback.RoleFeignClientFallback;
 import com.icefrog.strollit.baseframework.api.ApiResult;
 import com.icefrog.strollit.baseframework.microserver.ServiceId;
@@ -15,6 +16,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -27,5 +29,10 @@ public interface RoleFeignClient {
     
     @RequestMapping("/api/role/batchInsertRole")
     ApiResult<Integer> batchInsertRole(@RequestBody List<RoleDto> roleDtos);
+    
+    @RequestMapping("/api/role/pageQueryRoleList")
+    ApiResult<PageInfo<RoleDto>>  pageQueryRoleList(@RequestParam(name = "pageIndex") Integer pageIndex,
+                                                    @RequestParam(name = "pageSize") Integer pageSize,
+                                                    @RequestParam(name = "name") String name);
 
 }

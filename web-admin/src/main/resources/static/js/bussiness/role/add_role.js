@@ -22,7 +22,7 @@ var page = new Vue({
                     }).then(function (response) {
                         if(response.data.code == 0){
                             loading.close();
-                            window.location.href="/role/toRoles";//返回角色列表
+                            window.location.href="/role/toRoleList";//返回角色列表
                         }else{
                             loading.close();
                             page.$notify.warning({

@@ -14,8 +14,10 @@ import com.icefrog.strollit.user.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.print.attribute.standard.MediaSize;
 import java.util.List;
 
 /***
@@ -47,6 +49,13 @@ public class ApiRoleController extends ApiBaseController {
     @RequestMapping("/batchInsertRole")
     public ApiResult<Integer> batchInsertRole(@RequestBody List<RoleDto> roleDtos){
         return roleService.batchSaveRole(roleDtos);
+    }
+    
+    @RequestMapping("/pageQueryRoleList")
+    public ApiResult pageQueryRoleList(@RequestParam(name = "pageIndex") Integer pageIndex,
+                                       @RequestParam(name = "pageSize") Integer pageSize,
+                                       @RequestParam(name = "name") String name) {
+        return roleService.pageQueryRoleList(pageIndex, pageSize, name);
     }
     
 }

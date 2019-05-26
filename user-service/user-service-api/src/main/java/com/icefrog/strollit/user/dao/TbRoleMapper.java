@@ -21,4 +21,6 @@ public interface TbRoleMapper {
     int updateByPrimaryKey(TbRole record);
     
     int batchInsertRole(@Param("list")List<TbRole> roles);
+    
+    List<TbRole> pageQueryRole(@Param("name") String name);
 }

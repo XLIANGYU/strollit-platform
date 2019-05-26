@@ -7,6 +7,8 @@
 
 package com.icefrog.strollit.user.service.impl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.icefrog.strollit.baseframework.api.ApiResult;
 import com.icefrog.strollit.baseframework.util.IDGenerate;
 import com.icefrog.strollit.baseframework.web.BaseServer;
@@ -86,5 +88,21 @@ public class RoleServiceImpl extends BaseServer implements RoleService {
     @Override
     public TbRole selectByPrimaryKey(String id) {
         return roleMapper.selectByPrimaryKey(id);
+    }
+    
+    @Override
+    public ApiResult<PageInfo<TbRole>> pageQueryRoleList(Integer pageIndex, Integer pageSize, String name) {
+        
+        if(StringUtils.isNotBlank(name)){
+            name = "%" + name + "%";
+        }else{
+            name = null;
+        }
+    
+        PageHelper.startPage(pageIndex, pageSize);
+        List<TbRole> roles = roleMapper.pageQueryRole(name);
+        PageInfo<TbRole> info = new PageInfo<>(roles);
+        
+        return new ApiResult<PageInfo<TbRole>>().success(info);
     }
 }

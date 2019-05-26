@@ -7,6 +7,7 @@
 
 package com.icefrog.strollit.admin.controller;
 
+import com.github.pagehelper.PageInfo;
 import com.icefrog.strollit.admin.service.RoleService;
 import com.icefrog.strollit.baseframework.api.ApiResult;
 import com.icefrog.strollit.baseframework.web.ApiBaseController;
@@ -39,7 +40,7 @@ public class RoleController extends ApiBaseController{
     
     @RequestMapping("/toRoleList")
     public String toRoleList(){
-        return "";
+        return "/role/list_role";
     }
     
     @RequestMapping("/saveRole")
@@ -50,10 +51,18 @@ public class RoleController extends ApiBaseController{
         RoleDto role = new RoleDto();
         role.setRoleName(roleName);
         role.setRemark(roleComment);
-        role.setCreateId("1");
-        role.setUpdateId("1");
-        
+        role.setCreateId(getUserId());
+        role.setUpdateId(getUserId());
         return roleService.saveRole(role);
+    }
+    
+    @RequestMapping("initRoles")
+    @ResponseBody
+    public ApiResult initRoles(@RequestParam(name = "pageIndex") Integer pageIndex,
+                                                  @RequestParam(name = "pageSize") Integer pageSize,
+                                                  @RequestParam(name = "name") String name){
+        ApiResult<PageInfo<RoleDto>> pageInfoApiResult = roleService.pageQueryRoleList(pageIndex, pageSize, name);
+        return success("roles", pageInfoApiResult.getData());
     }
 
 }

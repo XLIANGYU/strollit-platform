@@ -7,6 +7,7 @@
 
 package com.icefrog.strollit.admin.client.fallback;
 
+import com.github.pagehelper.PageInfo;
 import com.icefrog.strollit.admin.client.RoleFeignClient;
 import com.icefrog.strollit.baseframework.api.ApiResult;
 import com.icefrog.strollit.baseframework.feign.BaseFallback;
@@ -31,6 +32,11 @@ public class RoleFeignClientFallback extends BaseFallback implements FallbackFac
     
             @Override
             public ApiResult<Integer> batchInsertRole(List<RoleDto> roleDtos) {
+                return errorHandler("调用角色相关服务失败", throwable);
+            }
+    
+            @Override
+            public ApiResult<PageInfo<RoleDto>>  pageQueryRoleList(Integer pageIndex, Integer pageSize, String name) {
                 return errorHandler("调用角色相关服务失败", throwable);
             }
         };

@@ -44,7 +44,7 @@ public class BaseServer {
         return this.success(ApiResult.SUCCESS_MESSAGE, data);
     }
     
-    protected ApiResult success(String key, String value){
+    protected ApiResult success(String key, Object value){
         Map<String, Object> data = new HashMap<>(1);
         data.put(key, value);
         return this.success(data);
