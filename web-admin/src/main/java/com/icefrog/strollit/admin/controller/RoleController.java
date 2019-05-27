@@ -11,10 +11,8 @@ import com.github.pagehelper.PageInfo;
 import com.icefrog.strollit.admin.service.RoleService;
 import com.icefrog.strollit.baseframework.api.ApiResult;
 import com.icefrog.strollit.baseframework.constance.PermissionConstance;
-import com.icefrog.strollit.baseframework.exception.WebException;
 import com.icefrog.strollit.baseframework.web.ApiBaseController;
 import com.icefrog.strollit.user.dto.RoleDto;
-import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,7 +21,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
