@@ -7,10 +7,7 @@
 
 package com.icefrog.strollit.baseframework.web;
 
-import com.icefrog.strollit.baseframework.api.ApiResult;
 import com.icefrog.strollit.baseframework.exception.ApiException;
-
-import java.util.Map;
 
 /***
  * ApiBaseController, 为Rest服务提供基础能力. 区别于WebBaseController

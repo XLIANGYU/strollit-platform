@@ -38,4 +38,19 @@ public class RoleServiceImpl extends BaseServer implements RoleService {
     public ApiResult<PageInfo<RoleDto>>  pageQueryRoleList(Integer pageIndex, Integer pageSize, String name) {
         return feignClient.pageQueryRoleList(pageIndex, pageSize, name);
     }
+    
+    @Override
+    public ApiResult<Integer> batchRemove(List<String> roleIds) {
+        return feignClient.batchRemove(roleIds);
+    }
+    
+    @Override
+    public ApiResult updateRole(RoleDto roleDto) {
+        return feignClient.updateRole(roleDto);
+    }
+    
+    @Override
+    public ApiResult<RoleDto> selectRoleDtoById(String roleId) {
+        return feignClient.selectRoleById(roleId);
+    }
 }

@@ -23,4 +23,6 @@ public interface TbRoleMapper {
     int batchInsertRole(@Param("list")List<TbRole> roles);
     
     List<TbRole> pageQueryRole(@Param("name") String name);
+    
+    int batchLogicRemove(@Param("id") String id);
 }

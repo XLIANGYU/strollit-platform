@@ -11,6 +11,7 @@ import com.icefrog.strollit.baseframework.api.ApiResult;
 import com.icefrog.strollit.baseframework.web.ApiBaseController;
 import com.icefrog.strollit.user.dto.RoleDto;
 import com.icefrog.strollit.user.service.RoleService;
+import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -56,6 +57,24 @@ public class ApiRoleController extends ApiBaseController {
                                        @RequestParam(name = "pageSize") Integer pageSize,
                                        @RequestParam(name = "name") String name) {
         return roleService.pageQueryRoleList(pageIndex, pageSize, name);
+    }
+    
+    @RequestMapping("/batchRemove")
+    public ApiResult<Integer> batchRemove(@RequestBody List<String> roleIds) {
+        if(CollectionUtils.isEmpty(roleIds)){
+            return new ApiResult<Integer>().success(0);
+        }
+        return roleService.batchRemove(roleIds);
+    }
+    
+    @RequestMapping("/updateRole")
+    public ApiResult updateRole(@RequestBody RoleDto roleDto) {
+        return roleService.updateRole(roleDto);
+    }
+    
+    @RequestMapping("/selectRoleById")
+    public ApiResult<RoleDto> selectRoleById(@RequestParam(name = "roleId") String roleId) {
+        return roleService.selectRoleById(roleId);
     }
     
 }

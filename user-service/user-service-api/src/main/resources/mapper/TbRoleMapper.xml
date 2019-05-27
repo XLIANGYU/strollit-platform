@@ -21,6 +21,9 @@
          </if>
         order by create_time desc
     </select>
+    <delete id="batchLogicRemove">
+        delete from tb_role where id = #{id}
+    </delete>
     <insert id="batchInsertRole">
         insert into tb_role(id, update_id, create_id, role_name, create_time, update_time, remark, is_del) VALUES
         <foreach collection="list" item="item" index="index" separator=",">

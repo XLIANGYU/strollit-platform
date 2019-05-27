@@ -80,7 +80,7 @@ var page = new Vue({
         },
         viewDetailHandle:function(index,row){
             //跳转到查看详情页
-            window.location.href="/role/toViewRole?roleId="+row.id;
+            window.location.href="/role/toEditRole?roleId="+row.id;
         },
         deleteRole:function() {
             if(page.deleteIds == ""){

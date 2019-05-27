@@ -34,5 +34,13 @@ public interface RoleFeignClient {
     ApiResult<PageInfo<RoleDto>>  pageQueryRoleList(@RequestParam(name = "pageIndex") Integer pageIndex,
                                                     @RequestParam(name = "pageSize") Integer pageSize,
                                                     @RequestParam(name = "name") String name);
-
+    
+    @RequestMapping("/api/role/batchRemove")
+    ApiResult<Integer> batchRemove(@RequestBody List<String> roleIds);
+    
+    @RequestMapping("/api/role/updateRole")
+    ApiResult updateRole(@RequestBody RoleDto roleDto);
+    
+    @RequestMapping("/api/role/selectRoleById")
+    ApiResult<RoleDto> selectRoleById(@RequestParam(name = "roleId") String roleId);
 }

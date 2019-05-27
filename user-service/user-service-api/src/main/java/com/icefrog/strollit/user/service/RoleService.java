@@ -24,4 +24,10 @@ public interface RoleService {
     
     ApiResult<PageInfo<TbRole>> pageQueryRoleList(Integer pageIndex, Integer pageSize, String name);
 
+    ApiResult<Integer> batchRemove(List<String> roleIds);
+    
+    ApiResult updateRole(RoleDto roleDto);
+    
+    ApiResult<RoleDto> selectRoleById(String roleId);
+    
 }

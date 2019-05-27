@@ -13,7 +13,6 @@ import com.icefrog.strollit.baseframework.api.ApiResult;
 import com.icefrog.strollit.baseframework.feign.BaseFallback;
 import com.icefrog.strollit.user.dto.RoleDto;
 import feign.hystrix.FallbackFactory;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -37,6 +36,21 @@ public class RoleFeignClientFallback extends BaseFallback implements FallbackFac
     
             @Override
             public ApiResult<PageInfo<RoleDto>>  pageQueryRoleList(Integer pageIndex, Integer pageSize, String name) {
+                return errorHandler("调用角色相关服务失败", throwable);
+            }
+    
+            @Override
+            public ApiResult<Integer> batchRemove(List<String> roleIds) {
+                return errorHandler("调用角色相关服务失败", throwable);
+            }
+    
+            @Override
+            public ApiResult updateRole(RoleDto roleDto) {
+                return errorHandler("调用角色相关服务失败", throwable);
+            }
+    
+            @Override
+            public ApiResult<RoleDto> selectRoleById(String roleId) {
                 return errorHandler("调用角色相关服务失败", throwable);
             }
         };

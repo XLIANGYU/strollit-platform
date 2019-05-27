@@ -105,4 +105,32 @@ public class RoleServiceImpl extends BaseServer implements RoleService {
         
         return new ApiResult<PageInfo<TbRole>>().success(info);
     }
+    
+    @Override
+    public ApiResult<Integer> batchRemove(List<String> roleIds) {
+        for (String roleId : roleIds) {
+            roleMapper.batchLogicRemove(roleId);
+        }
+        return new ApiResult<Integer>().success(roleIds.size() );
+    }
+    
+    @Override
+    public ApiResult updateRole(RoleDto roleDto) {
+        
+        if(roleDto == null){
+            return error("修改对象不允许为空");
+        }
+        TbRole role = RoleMapStruct.INSTANCE.toRoleModel(roleDto);
+        int result = roleMapper.updateByPrimaryKeySelective(role);
+        return result > 0 ? success() : error();
+    }
+    
+    @Override
+    public ApiResult<RoleDto> selectRoleById(String roleId) {
+        if(StringUtils.isEmpty(roleId)){
+            return error("查询详情的角色ID不允许为空!");
+        }
+        TbRole role = this.selectByPrimaryKey(roleId);
+        return new ApiResult<RoleDto>().success(RoleMapStruct.INSTANCE.toRoleDto(role));
+    }
 }
