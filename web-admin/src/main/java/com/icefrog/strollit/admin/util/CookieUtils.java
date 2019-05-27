@@ -1,7 +1,11 @@
-package com.icefrog.strollit.admin.util;
+/*
+ * Copyright 2019 zoohub.cn All rights reserved.
+ *
+ * @since 1.0
+ * @author: icefrog.su@qq.com
+ */
 
-import org.apache.commons.lang.StringUtils;
-import org.springframework.core.env.Environment;
+package com.icefrog.strollit.admin.util;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;

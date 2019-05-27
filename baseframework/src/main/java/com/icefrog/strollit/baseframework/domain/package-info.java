@@ -5,11 +5,4 @@
  * @author: icefrog.su@qq.com
  */
 
-package com.icefrog.strollit.baseframework.util;
-
-public enum HttpMethod {
-    
-    GET,
-    POST
-    
-}
+package com.icefrog.strollit.baseframework.domain;

@@ -1,5 +1,11 @@
-package com.icefrog.strollit.baseframework.util;
+/*
+ * Copyright 2019 zoohub.cn All rights reserved.
+ *
+ * @since 1.0
+ * @author: icefrog.su@qq.com
+ */
 
+package com.icefrog.strollit.baseframework.util;
 
 import com.icefrog.strollit.baseframework.api.ApiResult;
 import lombok.extern.slf4j.Slf4j;

@@ -1,15 +1,11 @@
 /*
- * Copyright 2019 版权所有
+ * Copyright 2019 zoohub.cn All rights reserved.
  *
  * @since 1.0
  * @author: icefrog.su@qq.com
  */
 
 package com.icefrog.strollit.baseframework.web;
-
-import com.icefrog.strollit.baseframework.domain.UserDto;
-
-import javax.servlet.http.HttpServletRequest;
 
 /***
  * 基础Controller规约. 约束Controller基础操作限制
@@ -18,13 +14,6 @@ import javax.servlet.http.HttpServletRequest;
  * @author icefrog.su@qq.com
  */
 public interface IController {
-    
-    /***
-     * 获取当前登录的用户基础信息
-     * @param request HttpServletRequest request
-     * @return UserDto
-     */
-    UserDto getUser(HttpServletRequest request);
     
     /***
      * 引发ApiException

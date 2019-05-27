@@ -1,5 +1,5 @@
 /*
- * Copyright icefrog software 2019 版权所有
+ * Copyright 2019 zoohub.cn All rights reserved.
  *
  * @since 1.0
  * @author: icefrog.su@qq.com
@@ -8,7 +8,6 @@
 package com.icefrog.strollit.baseframework.web;
 
 import com.icefrog.strollit.baseframework.constance.BaseConstance;
-import com.icefrog.strollit.baseframework.domain.UserDto;
 import com.icefrog.strollit.baseframework.util.HttpClientUtil;
 import com.icefrog.strollit.baseframework.util.HttpMethod;
 import net.sf.json.JSONObject;
@@ -38,16 +37,6 @@ public abstract class BaseController extends BaseServer implements IController {
     
     private JSONObject getUserInfo(){
         return JSONObject.fromObject(this.getRequest().getAttribute(BaseConstance.UserInfoHeader));
-    }
-    
-    /***
-     * 获取当前登录的用户基础信息。 当前request 中若不包含登录用户信息则返回null
-     * @param request HttpServletRequest request
-     * @return UserDto
-     */
-    @Override
-    public UserDto getUser(HttpServletRequest request) {
-        return null;
     }
     
     protected HttpServletRequest getRequest() {

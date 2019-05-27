@@ -1,9 +1,12 @@
-
+/*
+ * Copyright 2019 zoohub.cn All rights reserved.
+ *
+ * @since 1.0
+ * @author: icefrog.su@qq.com
+ */
 
 package com.icefrog.strollit.admin.filter;
 
-
-import com.icefrog.strollit.admin.util.Constance;
 import com.icefrog.strollit.admin.util.CookieUtils;
 import com.icefrog.strollit.baseframework.api.ApiResult;
 import com.icefrog.strollit.baseframework.constance.BaseConstance;
@@ -11,11 +14,7 @@ import com.icefrog.strollit.user.dto.UserDto;
 import lombok.extern.slf4j.Slf4j;
 import net.sf.json.JSONObject;
 import org.apache.commons.lang.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.annotation.Order;
-import org.springframework.core.env.Environment;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;

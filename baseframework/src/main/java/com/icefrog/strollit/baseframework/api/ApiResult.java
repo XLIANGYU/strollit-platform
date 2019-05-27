@@ -1,8 +1,8 @@
 /*
- * Copyright 2018 www.zoomgo.net Co., Ltd 版权所有
+ * Copyright 2019 zoohub.cn All rights reserved.
  *
- * author: icefrog.su@qq.com
- *
+ * @since 1.0
+ * @author: icefrog.su@qq.com
  */
 
 package com.icefrog.strollit.baseframework.api;
