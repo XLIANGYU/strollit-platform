@@ -22,4 +22,14 @@ public interface UserService {
     
     ApiResult<UserDto> loginWithQueryUser(String account);
     
+    ApiResult<List<TbUser>> pageQueryUserList(String userName, String nickName, String roleId, Integer pageIndex, Integer pageSize);
+    
+    ApiResult<UserDto> queryUserDetail(String userId);
+    
+    ApiResult updateUser(UserDto userDto);
+    
+    ApiResult batchRemoveUser(List<String> userIds);
+    
+    ApiResult saveUser(UserDto userDto);
+    
 }

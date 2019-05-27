@@ -24,4 +24,8 @@ public interface TbUserMapper {
     
     TbUser queryUserWithLogin(@Param("account") String account);
     
+    int logicRemove(@Param("id") String id);
+    
+    List<TbUser> pageQueryUser(@Param("account") String account, @Param("nickName") String nickName, @Param("roleId") String roleId);
+    
 }

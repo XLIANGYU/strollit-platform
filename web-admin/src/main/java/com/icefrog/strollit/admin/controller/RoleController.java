@@ -25,7 +25,9 @@ import java.util.Date;
 import java.util.List;
 
 /***
- * 角色管理控制器
+ * 角色管理控制器. 此控制器未对Web类型和Rest类型进行区分. 后续应当拆开
+ *
+ * @author icefrog.su@qq.com
  */
 @Controller
 @RequestMapping("/role")

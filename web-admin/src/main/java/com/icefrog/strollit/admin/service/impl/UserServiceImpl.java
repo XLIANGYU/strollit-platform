@@ -29,4 +29,29 @@ public class UserServiceImpl extends BaseServer implements UserService {
     public ApiResult<Integer> batchInsertUser(List<UserDto> users) {
        return userFeignClient.batchInsertUser(users);
     }
+    
+    @Override
+    public ApiResult<List<UserDto>> pageQueryUserList(String userName, String nickName, String roleId, Integer pageIndex, Integer pageSize) {
+        return userFeignClient.pageQueryUserList(userName, nickName, roleId, pageIndex, pageSize);
+    }
+    
+    @Override
+    public ApiResult<UserDto> queryUserDetail(String userId) {
+        return userFeignClient.queryUserDetailById(userId);
+    }
+    
+    @Override
+    public ApiResult updateUser(UserDto userDto) {
+        return userFeignClient.updateUser(userDto);
+    }
+    
+    @Override
+    public ApiResult batchRemoveUser(List<String> userIds) {
+        return userFeignClient.batchRemoveUser(userIds);
+    }
+    
+    @Override
+    public ApiResult saveUser(UserDto userDto) {
+        return userFeignClient.saveUser(userDto);
+    }
 }

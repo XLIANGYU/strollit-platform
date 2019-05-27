@@ -28,14 +28,34 @@ public class UserFeignClientFallback extends BaseFallback implements FallbackFac
             public ApiResult<Integer> batchInsertUser(List<UserDto> userDtos) {
                 return errorHandler("调用用户相关服务失败", throwable);
             }
-    
-            /***
-             * 使用account账户信息检索一个用户(仅排除逻辑删除)
-             * @param account 登录账户
-             * @return ApiResult<UserDto>
-             */
+            
             @Override
             public ApiResult<UserDto> loginWithQueryUser(String account) {
+                return errorHandler("调用用户相关服务失败", throwable);
+            }
+    
+            @Override
+            public ApiResult<List<UserDto>> pageQueryUserList(String account, String nickName, String roleId, Integer pageIndex, Integer pageSize) {
+                return errorHandler("调用用户相关服务失败", throwable);
+            }
+    
+            @Override
+            public ApiResult<UserDto> queryUserDetailById(String userId) {
+                return errorHandler("调用用户相关服务失败", throwable);
+            }
+    
+            @Override
+            public ApiResult updateUser(UserDto userDto) {
+                return errorHandler("调用用户相关服务失败", throwable);
+            }
+    
+            @Override
+            public ApiResult batchRemoveUser(List<String> userIds) {
+                return errorHandler("调用用户相关服务失败", throwable);
+            }
+    
+            @Override
+            public ApiResult saveUser(UserDto userDto) {
                 return errorHandler("调用用户相关服务失败", throwable);
             }
         };

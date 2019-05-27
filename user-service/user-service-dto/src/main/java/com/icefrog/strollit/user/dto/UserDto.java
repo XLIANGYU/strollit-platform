@@ -9,6 +9,8 @@ package com.icefrog.strollit.user.dto;
 
 import lombok.Data;
 
+import java.util.Date;
+
 @Data
 public class UserDto {
     
@@ -39,6 +41,14 @@ public class UserDto {
     private String infoAddress;
     
     private String sex;
+    
+    private String createId;
+    
+    private String updateId;
+    
+    private Date createTime;
+    
+    private Date updateTime;
     
     private Integer isDestory;
     

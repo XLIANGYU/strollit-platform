@@ -2,6 +2,8 @@ package com.icefrog.strollit.user.model;
 
 import lombok.Data;
 
+import java.util.Date;
+
 @Data
 public class TbUser {
     private String id;
@@ -31,6 +33,14 @@ public class TbUser {
     private String infoAddress;
 
     private String sex;
+    
+    private String createId;
+    
+    private String updateId;
+    
+    private Date createTime;
+    
+    private Date updateTime;
 
     private Integer isDestory;
 

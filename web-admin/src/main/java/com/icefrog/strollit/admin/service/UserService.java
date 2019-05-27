@@ -16,4 +16,14 @@ public interface UserService {
     
     ApiResult<Integer> batchInsertUser(List<UserDto> users);
     
+    ApiResult<List<UserDto>> pageQueryUserList(String userName, String nickName, String roleId, Integer pageIndex, Integer pageSize);
+    
+    ApiResult<UserDto> queryUserDetail(String userId);
+    
+    ApiResult updateUser(UserDto userDto);
+    
+    ApiResult batchRemoveUser(List<String> userIds);
+    
+    ApiResult saveUser(UserDto userDto);
+    
 }
