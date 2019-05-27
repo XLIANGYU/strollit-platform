@@ -4,7 +4,7 @@
  * @since 1.0
  * @author: icefrog.su@qq.com
  */
-
+ 
 package com.icefrog.strollit.admin.service.impl;
 
 import com.icefrog.strollit.admin.client.UserFeignClient;
