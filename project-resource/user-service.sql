@@ -206,6 +206,14 @@ CREATE TABLE tb_user
 	info_address varchar(256) COMMENT '详细地址 : 详细地址',
 	-- 性别
 	sex varchar(8) COMMENT '性别 : 性别',
+	-- 创建人
+	create_id varchar(32) COMMENT '创建人 : 创建人',
+	-- 更新人
+	update_id varchar(32) COMMENT '更新人 : 更新人',
+	-- 创建时间
+	create_time datetime COMMENT '创建时间 : 创建时间',
+	-- 更新时间
+	update_time datetime COMMENT '更新时间 : 更新时间',
 	-- 是否注销
 	is_destory int DEFAULT 0 COMMENT '是否注销 : 是否注销',
 	-- 是否禁用
